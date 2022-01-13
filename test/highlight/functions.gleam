@@ -23,14 +23,14 @@ pub fn replace(
   // ^ type
   //        ^ punctuation.bracket
   string.replace(in: string, each: pattern, with: replacement)
-  // <- variable
+  // <- variable.parameter
   //     ^ property
   //             ^ property
-  //                 ^ variable
+  //                 ^ variable.parameter
   //                         ^ property
-  //                               ^ variable
+  //                               ^ variable.parameter
   //                                        ^ property
-  //                                              ^ variable
+  //                                              ^ variable.parameter
 }
 
 fn trial(uri) {

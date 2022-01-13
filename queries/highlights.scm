@@ -7,6 +7,14 @@
 (constant
   name: (identifier) @constant)
 
+; Modules
+(module) @module
+(import alias: (identifier) @module)
+((function_call function: (field_access record: (identifier) @module))
+ (#is-not? local))
+((binary_expression "|>" (field_access record: (identifier) @module))
+ (#is-not? local))
+
 ; Functions
 (function
   name: (identifier) @function)

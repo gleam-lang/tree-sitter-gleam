@@ -1,0 +1,33 @@
+import gleam/io
+//     ^ module
+//          ^ module
+//           ^ module
+import animal/cat as kitty
+//      ^ module
+//                    ^ module
+
+pub fn main() {
+  io.println("hello world")
+  // <- module
+}
+
+type MyType {
+  MyType(func: fn() -> Int)
+}
+
+fn record_access_case(param: MyType) {
+  let binding = MyType(func: fn() { 42 })
+  let _ = binding.func()
+  //       ^ variable
+  let _ = param.func()
+  //       ^ variable.parameter
+}
+
+fn pipe_operator_case(string: String) {
+  string
+  // <- variable.parameter
+  |> iodata.new
+  // ^ module
+  |> iodata.reverse
+  // ^ module
+}
