@@ -10,6 +10,7 @@
 ; Modules
 (module) @module
 (import alias: (identifier) @module)
+(remote_type_identifier module: (identifier) @module)
 ((function_call function: (field_access record: (identifier) @module))
  (#is-not? local))
 ((binary_expression "|>" (field_access record: (identifier) @module))
