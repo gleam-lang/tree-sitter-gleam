@@ -1,2 +1,2 @@
-/src/**/* linguist-generated=true
-/bindings/**/* linguist-generated=true
+/src/**/* linguist-vendored=true
+/bindings/**/* linguist-vendored=true
