@@ -572,10 +572,7 @@ module.exports = grammar({
     type_constructor_arguments: ($) =>
       seq("(", optional(series_of($.type_constructor_argument, ",")), ")"),
     type_constructor_argument: ($) =>
-      seq(
-        optional(seq(field("label", $.label), ":")),
-        field("value", $._type)
-      ),
+      seq(optional(seq(field("label", $.label), ":")), field("value", $._type)),
 
     /* Type aliases */
     type_alias: ($) => seq("type", $._type_alias),
