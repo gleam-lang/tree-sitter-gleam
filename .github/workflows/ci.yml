@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   bless:
-    name: Bless
+    name: Test
     runs-on: ubuntu-latest
 
     steps:
