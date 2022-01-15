@@ -50,20 +50,9 @@
 ; Assumed to be intended to refer to a name for a field; something that comes
 ; before ":" or after "."
 ; e.g. record field names, tuple indices, names for named arguments, etc
-(field_access
-  field: (label) @property)
+(label) @property
 (tuple_access
   index: (integer) @property)
-(argument
-  label: (label) @property)
-(function_parameter
-  label: (label) @property)
-(record_update_argument
-  label: (label) @property)
-(type_constructor_argument
-  label: (label) @property)
-(record_pattern_argument
-  label: (label) @property)
 
 ; Type names
 (remote_type_identifier) @type
