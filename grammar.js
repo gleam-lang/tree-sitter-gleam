@@ -255,7 +255,6 @@ module.exports = grammar({
     binary_expression: ($) =>
       choice(
         binaryExpr($, prec.left, 1, "||"),
-        binaryExpr($, prec.left, 1, "||"),
         binaryExpr($, prec.left, 2, "&&"),
         binaryExpr($, prec.left, 3, "=="),
         binaryExpr($, prec.left, 3, "!="),
