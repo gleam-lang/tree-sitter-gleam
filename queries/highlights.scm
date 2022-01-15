@@ -57,7 +57,7 @@
 (argument
   label: (label) @property)
 (function_parameter
-  label: (identifier) @property)
+  label: (label) @property)
 (record_update_argument
   label: (label) @property)
 (type_constructor_argument

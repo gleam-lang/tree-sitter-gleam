@@ -73,17 +73,17 @@ fn replace(
     name: (identifier)
     parameters: (function_parameters
       (function_parameter
-        label: (identifier)
+        label: (label)
         name: (identifier)
         type: (type
           name: (type_identifier)))
       (function_parameter
-        label: (identifier)
+        label: (label)
         name: (identifier)
         type: (type
           name: (type_identifier)))
       (function_parameter
-        label: (identifier)
+        label: (label)
         name: (identifier)
         type: (type
           name: (type_identifier))))
@@ -178,17 +178,17 @@ pub fn replace(
     name: (identifier)
     parameters: (function_parameters
       (function_parameter
-        label: (identifier)
+        label: (label)
         name: (identifier)
         type: (type
           name: (type_identifier)))
       (function_parameter
-        label: (identifier)
+        label: (label)
         name: (identifier)
         type: (type
           name: (type_identifier)))
       (function_parameter
-        label: (identifier)
+        label: (label)
         name: (identifier)
         type: (type
           name: (type_identifier))))
@@ -392,7 +392,7 @@ fn field_access(x) {
       (anonymous_function
         parameters: (function_parameters
           (function_parameter
-            label: (identifier)
+            label: (label)
             name: (identifier)
             type: (type
               name: (type_identifier))))

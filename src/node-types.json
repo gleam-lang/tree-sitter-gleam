@@ -1849,7 +1849,7 @@
         "required": false,
         "types": [
           {
-            "type": "identifier",
+            "type": "label",
             "named": true
           }
         ]

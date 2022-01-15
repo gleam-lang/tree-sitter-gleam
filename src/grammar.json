@@ -1618,7 +1618,7 @@
           "name": "label",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "label"
           }
         },
         {
@@ -1647,7 +1647,7 @@
           "name": "label",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "label"
           }
         },
         {

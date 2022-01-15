@@ -216,10 +216,10 @@ module.exports = grammar({
         optional($._type_annotation)
       ),
     _labeled_discard_param: ($) =>
-      seq(field("label", $.identifier), field("name", $.discard)),
+      seq(field("label", $.label), field("name", $.discard)),
     _discard_param: ($) => field("name", $.discard),
     _labeled_name_param: ($) =>
-      seq(field("label", $.identifier), field("name", $.identifier)),
+      seq(field("label", $.label), field("name", $.identifier)),
     _name_param: ($) => field("name", $.identifier),
     // This method diverges from the parser's `parse_expression_seq` somewhat.
     // The parser considers all expressions after a `try` to be part of its AST
