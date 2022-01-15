@@ -34,6 +34,7 @@ pub fn replace(
   original
   // ^ variable.parameter
   |> string.replace(pattern, replacement)
+  // <- operator
   // ^ module
   //        ^ function
   //                ^ variable.parameter
@@ -57,6 +58,7 @@ fn myfun(argument) {
   argument
   // ^ variable.parameter
   |> local_fun
+  // <- operator
   // ^ variable
   |> module_fun
   // ^ function
