@@ -12,16 +12,4 @@
 (record_pattern_argument pattern: (identifier) @local.definition)
 
 ; References
-(field_access
-  record: (identifier) @local.reference
-  field: (identifier) @local.reference)
-
-(function_call
-  function: (identifier) @local.reference)
-
-(argument
-  value: (identifier) @local.reference)
-
-(binary_expression (identifier) @local.reference)
-(case_subjects (identifier) @local.reference)
-(tuple (identifier) @local.reference)
+(identifier) @local.reference

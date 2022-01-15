@@ -10,15 +10,20 @@
 ; Modules
 (module) @module
 (import alias: (identifier) @module)
-(remote_type_identifier module: (identifier) @module)
-((function_call function: (field_access record: (identifier) @module
-                                        field: (identifier) @function))
+(remote_type_identifier
+  module: (identifier) @module)
+
+((function_call
+   function: (field_access
+     record: (identifier) @module
+     field: (label) @function))
  (#is-not? local))
+
 ((binary_expression
    operator: "|>"
    right: (field_access
      record: (identifier) @module
-     field: (identifier) @function))
+     field: (label) @function))
  (#is-not? local))
 
 ; Functions
@@ -46,19 +51,19 @@
 ; before ":" or after "."
 ; e.g. record field names, tuple indices, names for named arguments, etc
 (field_access
-  field: (identifier) @property)
+  field: (label) @property)
 (tuple_access
   index: (integer) @property)
 (argument
-  label: (identifier) @property)
+  label: (label) @property)
 (function_parameter
   label: (identifier) @property)
 (record_update_argument
-  label: (identifier) @property)
+  label: (label) @property)
 (type_constructor_argument
-  label: (identifier) @property)
+  label: (label) @property)
 (record_pattern_argument
-  label: (identifier) @property)
+  label: (label) @property)
 
 ; Type names
 (remote_type_identifier) @type
