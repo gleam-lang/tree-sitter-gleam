@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-mac:
-    name: build-release
+    name: build-mac-release
     runs-on: macos-latest
     steps:
       - name: Checkout Repository
@@ -30,10 +30,25 @@ jobs:
         run: cc -shared -fPIC -g -O2 -I src src/parser.c -o tree-sitter-gleam.so
 
       - name: Create archive
-        run: tar -czf tree-sitter-gleam_macos.tar.gz tree-sitter-gleam.so
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/}"
+          ARCHIVE="tree-sitter-gleam-$VERSION-macos.tar.gz"
+          tar -czf $ARCHIVE tree-sitter-gleam.so
+
+          echo "ASSET=$ARCHIVE" >> $GITHUB_ENV
+
+      - name: Upload release archive
+        uses: softprops/action-gh-release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          prerelease: false
+          fail_on_unmatched_files: true
+          files: |
+            ${{ env.ASSET }}
 
   build-linux:
-    name: build-release
+    name: build-linux-release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -57,4 +72,19 @@ jobs:
         run: cc -shared -fPIC -g -O2 -I src src/parser.c -o tree-sitter-gleam.so
 
       - name: Create archive
-        run: tar -czf tree-sitter-gleam_linux.tar.gz tree-sitter-gleam.so
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/}"
+          ARCHIVE="tree-sitter-gleam-$VERSION-linux.tar.gz"
+          tar -czf $ARCHIVE tree-sitter-gleam.so
+
+          echo "ASSET=$ARCHIVE" >> $GITHUB_ENV
+
+      - name: Upload release archive
+        uses: softprops/action-gh-release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          prerelease: false
+          fail_on_unmatched_files: true
+          files: |
+            ${{ env.ASSET }}
