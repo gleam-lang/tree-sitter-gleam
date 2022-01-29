@@ -30,7 +30,7 @@ jobs:
         run: cc -shared -fPIC -g -O2 -I src src/parser.c -o tree-sitter-gleam.so
 
       - name: Create archive
-        run: tar -gzf tree-sitter-gleam_macos.tar.gz tree-sitter-gleam.so
+        run: tar -czf tree-sitter-gleam_macos.tar.gz tree-sitter-gleam.so
 
   build-linux:
     name: build-release
@@ -57,4 +57,4 @@ jobs:
         run: cc -shared -fPIC -g -O2 -I src src/parser.c -o tree-sitter-gleam.so
 
       - name: Create archive
-        run: tar -gzf tree-sitter-gleam_linux.tar.gz tree-sitter-gleam.so
+        run: tar -czf tree-sitter-gleam_linux.tar.gz tree-sitter-gleam.so
