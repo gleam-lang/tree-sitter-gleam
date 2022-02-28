@@ -1,11 +1,11 @@
-=====================
+================================================================================
 Imports
-=====================
+================================================================================
 
 import a
 import a/b
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (import
@@ -13,9 +13,9 @@ import a/b
   (import
     module: (module)))
 
-====================
+================================================================================
 Unqualified imports
-====================
+================================================================================
 
 import a.{b}
 import a/b.{c, d}
@@ -24,7 +24,7 @@ import a/b.{c, D as E}
 
 import a/.{b, d}
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (import
@@ -56,14 +56,17 @@ import a/.{b, d}
         name: (type_identifier)
         alias: (type_identifier))))
   (import
-    module: (module))
-  (ERROR
-    (UNEXPECTED ',')
-    (UNEXPECTED 'd')))
+    module: (module)
+    (ERROR)
+    imports: (unqualified_imports
+      (unqualified_import
+        name: (identifier))
+      (unqualified_import
+        name: (identifier)))))
 
-================
+================================================================================
 Aliased imports
-================
+================================================================================
 
 import a/b.{c as d} as e
 import animal/cat as kitty
@@ -73,7 +76,7 @@ import animal.{}
 import animal/cat as Kitty
 import animal.{Cat as kitty}
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (import
@@ -99,10 +102,11 @@ import animal.{Cat as kitty}
   (import
     module: (module))
   (ERROR)
+  (record
+    name: (type_identifier))
   (import
     module: (module)
     imports: (unqualified_imports
       (unqualified_import
         name: (type_identifier))
-      (ERROR
-        (UNEXPECTED 'k')))))
+      (ERROR))))
