@@ -18,12 +18,10 @@ module.exports = grammar({
       $.remote_type_identifier,
     ],
     [$.case_subjects],
-    [$.source_file],
   ],
   rules: {
     /* General rules */
-    source_file: ($) =>
-      repeat(choice($._expression_seq, $.target_group, $._statement)),
+    source_file: ($) => repeat(choice($.target_group, $._statement)),
 
     _statement: ($) =>
       choice(
