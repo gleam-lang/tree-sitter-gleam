@@ -8,6 +8,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "_expression_seq"
+          },
+          {
+            "type": "SYMBOL",
             "name": "target_group"
           },
           {
@@ -5925,6 +5929,9 @@
     ],
     [
       "case_subjects"
+    ],
+    [
+      "source_file"
     ]
   ],
   "precedences": [],
