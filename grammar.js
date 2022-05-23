@@ -2,9 +2,7 @@ const NEWLINE = /\r?\n/;
 
 module.exports = grammar({
   name: "gleam",
-  externals: ($) => [
-    $.quoted_content
-  ],
+  externals: ($) => [$.quoted_content],
   extras: ($) => [
     ";",
     NEWLINE,
