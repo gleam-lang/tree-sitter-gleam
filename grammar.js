@@ -674,7 +674,11 @@ module.exports = grammar({
       seq(field("module", $.identifier), ".", field("name", $.type_identifier)),
     constructor_name: ($) => $._upname,
     remote_constructor_name: ($) =>
-      seq(field("module", $.identifier), ".", field("name", $.constructor_name)),
+      seq(
+        field("module", $.identifier),
+        ".",
+        field("name", $.constructor_name)
+      ),
 
     /* Reused types from the Gleam lexer */
     _discard_name: ($) => /_[_0-9a-z]*/,
