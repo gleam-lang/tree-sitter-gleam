@@ -2789,8 +2789,13 @@
       ]
     },
     "panic": {
-      "type": "STRING",
-      "value": "panic"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "panic"
+        }
+      ]
     },
     "tuple": {
       "type": "SEQ",

@@ -2874,6 +2874,11 @@
     }
   },
   {
+    "type": "panic",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "pattern_spread",
     "named": true,
     "fields": {}
@@ -4571,11 +4576,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "fn",
@@ -4619,7 +4624,7 @@
   },
   {
     "type": "panic",
-    "named": true
+    "named": false
   },
   {
     "type": "quoted_content",
