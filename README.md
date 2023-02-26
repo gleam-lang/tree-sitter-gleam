@@ -33,6 +33,11 @@ trees and syntax highlighting for a given Gleam file.
 [tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md
 [Install tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md#installation
 
+To Contribute:
+
+1. Generate grammar from `grammar.js` run: `npm run generate`.
+2. Run tests `npm test`,
+
 Various Gotchas
 ---------------
 
