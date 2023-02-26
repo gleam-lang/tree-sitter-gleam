@@ -2647,6 +2647,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "panic"
+        },
+        {
+          "type": "SYMBOL",
           "name": "tuple"
         },
         {
@@ -2783,6 +2787,10 @@
           ]
         }
       ]
+    },
+    "panic": {
+			"type": "STRING",
+			"value": "panic"
     },
     "tuple": {
       "type": "SEQ",

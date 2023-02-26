@@ -79,6 +79,7 @@
   "import"
   "let"
   "todo"
+  "panic"
   "try"
   "type"
   "use"

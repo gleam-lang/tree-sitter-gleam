@@ -23,22 +23,27 @@ trees and syntax highlighting for a given Gleam file.
 
 1. [Install tree-sitter-cli]
 2. Create a `tree-sitters` directory in your home directory.
-3. Clone this repository (or symlink it) into the new `~/tree-sitters/` directory.
+3. Clone this repository (or symlink it) into the new `~/tree-sitters/`
+   directory.
 4. Run `tree-sitter parse path/to/file.gleam` to be shown the parse tree for the
    file.
 5. Run `tree-sitter highlight path/to/file.gleam` to be shown the file with
    syntax highlighting applied.
 
-[tree-sitter-gleam-rust-example]: https://github.com/J3RN/tree-sitter-gleam-rust-example
-[tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md
-[Install tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md#installation
+[tree-sitter-gleam-rust-example]:
+https://github.com/J3RN/tree-sitter-gleam-rust-example
+[tree-sitter-cli]:
+https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md
+[Install tree-sitter-cli]:
+https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md#installation
 
 Various Gotchas
 ---------------
 
 There are a few nodes in the generated AST that may be confusing at first:
+
 - `type` :: A very ambiguous name, but this refers to a concrete type such as
-  `List(#(String, Int))`
+  `List(#(String, Int))`.
 - `type_name` :: Refers to essentially the left side of a type declaration and
   includes parameters, e.g. `MyType(foo, bar)`.
 - `type_identifier` :: Known in the parser as "UpName", this is what you would
@@ -52,7 +57,10 @@ There are a few nodes in the generated AST that may be confusing at first:
   —there's no way for the parser to know. In this case, it will be parsed to
   `(function_call function: (field_access ...) ...)` , as I arbitrarily decided
   to always assume the code is accessing a field on a record.
-- `constant_field_access` :: Recognizes when a reference to a remote function is used as a constant's value. Generally field accesses are indistinguishable from remote function invocations by the parser so `field_access` is the node name used for both (hence this misnomer).
+- `constant_field_access` :: Recognizes when a reference to a remote function is
+  used as a constant's value. Generally field accesses are indistinguishable
+  from remote function invocations by the parser so `field_access` is the node
+  name used for both (hence this misnomer).
 
 This is not a comprehensive list. If you find a node confusing, search for it
 in `grammar.js`, as it might have an explanatory comment. Either way, feel free

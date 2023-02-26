@@ -146,6 +146,10 @@
             "named": true
           },
           {
+            "type": "panic",
+            "named": true
+          },
+          {
             "type": "tuple",
             "named": true
           },
