@@ -15,8 +15,7 @@ Usage
 
 tree-sitter-gleam, as with all tree-sitter grammars, is of limited utility on
 its own. Instead, tree-sitter-gleam is best used as a Gleam parser that can be
-embedded in other projects. An example of such a project is
-[tree-sitter-gleam-rust-example].
+embedded in other projects. An example of such a project is [tree-sitter-gleam-rust-example].
 
 However, [tree-sitter-cli] can be used with this grammar to show generated parse
 trees and syntax highlighting for a given Gleam file.
@@ -30,12 +29,9 @@ trees and syntax highlighting for a given Gleam file.
 5. Run `tree-sitter highlight path/to/file.gleam` to be shown the file with
    syntax highlighting applied.
 
-[tree-sitter-gleam-rust-example]:
-https://github.com/J3RN/tree-sitter-gleam-rust-example
-[tree-sitter-cli]:
-https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md
-[Install tree-sitter-cli]:
-https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md#installation
+[tree-sitter-gleam-rust-example]: https://github.com/J3RN/tree-sitter-gleam-rust-example
+[tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md
+[Install tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md#installation
 
 Various Gotchas
 ---------------

@@ -2789,8 +2789,8 @@
       ]
     },
     "panic": {
-			"type": "STRING",
-			"value": "panic"
+      "type": "STRING",
+      "value": "panic"
     },
     "tuple": {
       "type": "SEQ",
