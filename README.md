@@ -37,6 +37,7 @@ Various Gotchas
 ---------------
 
 There are a few nodes in the generated AST that may be confusing at first:
+
 - `type` :: A very ambiguous name, but this refers to a concrete type such as
   `List(#(String, Int))`
 - `type_name` :: Refers to essentially the left side of a type declaration and
@@ -77,3 +78,11 @@ follow these style suggestions. 🙏
 - Ensure a final newline is present at the end of all files (this is the default
   in Vim, Emacs)
 - Format JavaScript by running `npm run format`
+
+Contributing
+------------
+
+1. Change files such as `grammar.json` and `queries/highlight.scm`.
+2. The grammar needs to be generated from the `grammar.js` file by running `npm run generate`.
+3. Add lang feature tests in `test/corpus/functions.txt`.
+4. Run `npm run test` and fix tests in `test/corpus/functions.txt`.
