@@ -77,6 +77,7 @@
   "fn"
   "if"
   "import"
+	"let assert"
   "let"
   "todo"
   "try"
