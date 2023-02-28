@@ -267,8 +267,12 @@ fn foob(x, y) {
 }
 fn assert_assignment() {
   let assert Ok(a) = Ok(1)
-	assert y = x
-  assert #(x, _) = #(1, 2)
+  let assert x = {
+    1 + 1
+    "Hello, World!"
+  }
+  let assert y = x
+  let assert #(x, _) = #(1, 2)
 }
 fn assignment() {
   let x = {
@@ -279,6 +283,7 @@ fn assignment() {
   let #(x, _) = #(1, 2)
 }
 fn assertations() {
+  assert Ok(a) = Ok(1)
   assert x = {
     1 + 1
     "Hello, World!"
@@ -470,16 +475,24 @@ fn field_access(x) {
           arguments: (arguments
             (argument
                 value: (integer)))))
-          (assert
-            pattern: (identifier)
-            value: (identifier))
-          (assert
-            pattern: (tuple_pattern
-              (identifier)
-              (discard))
-            value: (tuple
-              (integer)
-              (integer)))))
+      (let_assert
+        pattern: (identifier)
+        value: (expression_group
+          (binary_expression
+            left: (integer)
+            right: (integer))
+          (string
+            (quoted_content))))
+      (let_assert
+        pattern: (identifier)
+        value: (identifier))
+      (let_assert
+        pattern: (tuple_pattern
+          (identifier)
+          (discard))
+        value: (tuple
+          (integer)
+          (integer)))))
   (function
     name: (identifier)
     parameters: (function_parameters)
@@ -506,6 +519,17 @@ fn field_access(x) {
     name: (identifier)
     parameters: (function_parameters)
     body: (function_body
+      (assert
+        pattern: (record_pattern
+          name: (constructor_name)
+          arguments: (record_pattern_arguments
+            (record_pattern_argument
+              pattern: (identifier))))
+        value: (record
+          name: (constructor_name)
+          arguments: (arguments
+            (argument
+              value: (integer)))))
       (assert
         pattern: (identifier)
         value: (expression_group
