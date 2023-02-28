@@ -68,6 +68,14 @@ To-do List
 
 [open an issue]: https://github.com/J3RN/tree-sitter-gleam/issues/new
 
+Contributing
+------------
+
+1. Change files such as `grammar.json` and `queries/highlight.scm`.
+2. The grammar needs to be generated from the `grammar.js` file by running `npm run generate`.
+3. Add lang feature tests in `test/corpus/functions.txt`.
+4. Run `npm run test` and fix tests in `test/corpus/functions.txt`.
+
 Style
 -----
 
@@ -79,10 +87,3 @@ follow these style suggestions. 🙏
   in Vim, Emacs)
 - Format JavaScript by running `npm run format`
 
-Contributing
-------------
-
-1. Change files such as `grammar.json` and `queries/highlight.scm`.
-2. The grammar needs to be generated from the `grammar.js` file by running `npm run generate`.
-3. Add lang feature tests in `test/corpus/functions.txt`.
-4. Run `npm run test` and fix tests in `test/corpus/functions.txt`.
