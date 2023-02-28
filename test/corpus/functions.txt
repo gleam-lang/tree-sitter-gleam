@@ -267,6 +267,8 @@ fn foob(x, y) {
 }
 fn assert_assignment() {
   let assert Ok(a) = Ok(1)
+	assert y = x
+  assert #(x, _) = #(1, 2)
 }
 fn assignment() {
   let x = {
@@ -467,7 +469,17 @@ fn field_access(x) {
           name: (constructor_name)
           arguments: (arguments
             (argument
-              value: (integer)))))))
+                value: (integer)))))
+          (assert
+            pattern: (identifier)
+            value: (identifier))
+          (assert
+            pattern: (tuple_pattern
+              (identifier)
+              (discard))
+            value: (tuple
+              (integer)
+              (integer)))))
   (function
     name: (identifier)
     parameters: (function_parameters)
