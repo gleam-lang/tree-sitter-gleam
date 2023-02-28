@@ -265,6 +265,9 @@ fn foob(x, y) {
     _else -> False
   }
 }
+fn assert_assignment() {
+  let assert Ok(a) = Ok(1)
+}
 fn assignment() {
   let x = {
     1 + 1
@@ -450,6 +453,21 @@ fn field_access(x) {
                 (discard)))
             value: (record
               name: (constructor_name)))))))
+  (function
+    name: (identifier)
+    parameters: (function_parameters)
+    body: (function_body
+      (let_assert
+        pattern: (record_pattern
+          name: (constructor_name)
+          arguments: (record_pattern_arguments
+            (record_pattern_argument
+              pattern: (identifier))))
+        value: (record
+          name: (constructor_name)
+          arguments: (arguments
+            (argument
+              value: (integer)))))))
   (function
     name: (identifier)
     parameters: (function_parameters)
@@ -1082,5 +1100,5 @@ io.println("// hello world!\n")
     arguments: (arguments
       (argument
         value: (string
-	  (quoted_content)
-	  (escape_sequence))))))
+    (quoted_content)
+    (escape_sequence))))))

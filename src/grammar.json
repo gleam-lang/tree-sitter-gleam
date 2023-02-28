@@ -2676,6 +2676,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "let_assert"
+        },
+        {
+          "type": "SYMBOL",
           "name": "let"
         },
         {
@@ -4019,6 +4023,19 @@
             "type": "SYMBOL",
             "name": "integer"
           }
+        }
+      ]
+    },
+    "let_assert": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "let assert"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_assignment"
         }
       ]
     },
