@@ -71,10 +71,10 @@ To-do List
 Contributing
 ------------
 
-1. Change files such as `grammar.json` and `queries/highlight.scm`.
+1. Change files such as `grammar.js` and `queries/highlight.scm`.
 2. The grammar needs to be generated from the `grammar.js` file by running `npm run generate`.
-3. Add lang feature tests in `test/corpus/functions.txt`.
-4. Run `npm run test` and fix tests in `test/corpus/functions.txt`.
+3. Add parser feature tests to the relevant file(s) in `test/corpus/`, or make a new one.
+4. Run `npm run test` and fix any failing tests.
 
 Style
 -----
@@ -82,8 +82,7 @@ Style
 To prevent headaches from stylistic differences, I request that you please
 follow these style suggestions. 🙏
 
-- Remove all non-mandatory trailing whitespace
+- Remove all non-mandatory trailing whitespace.
 - Ensure a final newline is present at the end of all files (this is the default
-  in Vim, Emacs)
-- Format JavaScript by running `npm run format`
-
+  in Vim, Emacs).
+- Format JavaScript by running `npm run format`.
