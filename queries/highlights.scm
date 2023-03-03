@@ -79,6 +79,7 @@
   "import"
   "let assert"
   "let"
+  "panic"
   "todo"
   "try"
   "type"
