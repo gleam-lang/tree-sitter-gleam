@@ -4931,10 +4931,6 @@
     "named": false
   },
   {
-    "type": "let assert",
-    "named": false
-  },
-  {
     "type": "little",
     "named": false
   },

@@ -443,7 +443,7 @@ module.exports = grammar({
       ),
     _case_clause_tuple_access: ($) =>
       seq(field("tuple", $.identifier), ".", field("index", $.integer)),
-    let_assert: ($) => seq("let assert", $._assignment),
+    let_assert: ($) => seq("let", "assert", $._assignment),
     let: ($) => seq("let", $._assignment),
     use: ($) =>
       seq(

@@ -4044,7 +4044,11 @@
       "members": [
         {
           "type": "STRING",
-          "value": "let assert"
+          "value": "let"
+        },
+        {
+          "type": "STRING",
+          "value": "assert"
         },
         {
           "type": "SYMBOL",
