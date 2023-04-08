@@ -80,7 +80,6 @@
   "let"
   "panic"
   "todo"
-  "try"
   "type"
   "use"
 ] @keyword
