@@ -1586,7 +1586,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_function",
@@ -1666,10 +1666,6 @@
         },
         {
           "type": "todo",
-          "named": true
-        },
-        {
-          "type": "try",
           "named": true
         },
         {
@@ -1925,7 +1921,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_function",
@@ -2005,10 +2001,6 @@
         },
         {
           "type": "todo",
-          "named": true
-        },
-        {
-          "type": "try",
           "named": true
         },
         {
@@ -3594,10 +3586,6 @@
           "named": true
         },
         {
-          "type": "try",
-          "named": true
-        },
-        {
           "type": "tuple",
           "named": true
         },
@@ -3704,192 +3692,6 @@
         "types": [
           {
             "type": "string",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "try",
-    "named": true,
-    "fields": {
-      "assign": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "as",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "pattern": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "as",
-            "named": false
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "bit_string_pattern",
-            "named": true
-          },
-          {
-            "type": "discard",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "integer",
-            "named": true
-          },
-          {
-            "type": "list_pattern",
-            "named": true
-          },
-          {
-            "type": "record_pattern",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "tuple_pattern",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "function_type",
-            "named": true
-          },
-          {
-            "type": "tuple_type",
-            "named": true
-          },
-          {
-            "type": "type",
-            "named": true
-          },
-          {
-            "type": "type_hole",
-            "named": true
-          },
-          {
-            "type": "type_var",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "anonymous_function",
-            "named": true
-          },
-          {
-            "type": "assert",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "bit_string",
-            "named": true
-          },
-          {
-            "type": "case",
-            "named": true
-          },
-          {
-            "type": "expression_group",
-            "named": true
-          },
-          {
-            "type": "field_access",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "function_call",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "integer",
-            "named": true
-          },
-          {
-            "type": "let_assert",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "negation",
-            "named": true
-          },
-          {
-            "type": "panic",
-            "named": true
-          },
-          {
-            "type": "record",
-            "named": true
-          },
-          {
-            "type": "record_update",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "todo",
-            "named": true
-          },
-          {
-            "type": "tuple",
-            "named": true
-          },
-          {
-            "type": "tuple_access",
             "named": true
           }
         ]
@@ -4756,11 +4558,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "fn",
@@ -4824,10 +4626,6 @@
   },
   {
     "type": "todo",
-    "named": false
-  },
-  {
-    "type": "try",
     "named": false
   },
   {
