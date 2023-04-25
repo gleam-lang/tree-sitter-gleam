@@ -6145,10 +6145,6 @@
   },
   "extras": [
     {
-      "type": "STRING",
-      "value": ";"
-    },
-    {
       "type": "PATTERN",
       "value": "\\r?\\n"
     },
