@@ -302,7 +302,7 @@ module.exports = grammar({
         $.list,
         alias($._expression_bit_string, $.bit_string),
         $.anonymous_function,
-        $.expression_group,
+        $.block,
         $.case,
         $.assert,
         $.negation,
@@ -362,7 +362,7 @@ module.exports = grammar({
         choice($._discard_param, $._name_param),
         optional($._type_annotation)
       ),
-    expression_group: ($) => seq("{", $._statement_seq, "}"),
+    block: ($) => seq("{", $._statement_seq, "}"),
     case: ($) =>
       seq(
         "case",
@@ -465,7 +465,7 @@ module.exports = grammar({
         $.identifier,
         $.function_call,
         $.tuple,
-        $.expression_group,
+        $.block,
         $.case,
         $.field_access,
         $.tuple_access
@@ -483,7 +483,7 @@ module.exports = grammar({
         $.record,
         $.identifier,
         $.function_call,
-        $.expression_group,
+        $.block,
         $.case,
         $.record_update,
         $.field_access,
@@ -509,7 +509,7 @@ module.exports = grammar({
       choice(
         $.identifier,
         $.anonymous_function,
-        $.expression_group,
+        $.block,
         $.case,
         $.tuple_access,
         $.field_access,
