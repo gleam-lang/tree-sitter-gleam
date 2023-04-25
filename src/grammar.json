@@ -1804,6 +1804,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "let_assert"
+        },
+        {
+          "type": "SYMBOL",
           "name": "use"
         }
       ]
@@ -2644,10 +2648,6 @@
         {
           "type": "SYMBOL",
           "name": "case"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "let_assert"
         },
         {
           "type": "SYMBOL",

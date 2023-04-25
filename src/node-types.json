@@ -118,10 +118,6 @@
             "named": true
           },
           {
-            "type": "let_assert",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -319,10 +315,6 @@
             "named": true
           },
           {
-            "type": "let_assert",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -420,10 +412,6 @@
           },
           {
             "type": "integer",
-            "named": true
-          },
-          {
-            "type": "let_assert",
             "named": true
           },
           {
@@ -639,10 +627,6 @@
             "named": true
           },
           {
-            "type": "let_assert",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -825,10 +809,6 @@
             "named": true
           },
           {
-            "type": "let_assert",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -930,10 +910,6 @@
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "let_assert",
           "named": true
         },
         {
@@ -1090,10 +1066,6 @@
           },
           {
             "type": "integer",
-            "named": true
-          },
-          {
-            "type": "let_assert",
             "named": true
           },
           {
@@ -1337,10 +1309,6 @@
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "let_assert",
           "named": true
         },
         {
@@ -2411,10 +2379,6 @@
             "named": true
           },
           {
-            "type": "let_assert",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -2597,10 +2561,6 @@
             "named": true
           },
           {
-            "type": "let_assert",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -2693,10 +2653,6 @@
             "named": true
           },
           {
-            "type": "let_assert",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -2781,10 +2737,6 @@
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "let_assert",
           "named": true
         },
         {
@@ -2966,10 +2918,6 @@
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "let_assert",
           "named": true
         },
         {
@@ -3257,10 +3205,6 @@
             "named": true
           },
           {
-            "type": "let_assert",
-            "named": true
-          },
-          {
             "type": "list",
             "named": true
           },
@@ -3360,10 +3304,6 @@
           },
           {
             "type": "integer",
-            "named": true
-          },
-          {
-            "type": "let_assert",
             "named": true
           },
           {
@@ -3748,10 +3688,6 @@
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "let_assert",
           "named": true
         },
         {
@@ -4264,10 +4200,6 @@
           },
           {
             "type": "integer",
-            "named": true
-          },
-          {
-            "type": "let_assert",
             "named": true
           },
           {

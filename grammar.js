@@ -251,7 +251,7 @@ module.exports = grammar({
       seq(field("label", $.label), field("name", $.identifier)),
     _name_param: ($) => field("name", $.identifier),
     _statement_seq: ($) => repeat1($._statement),
-    _statement: ($) => choice($._expression, $.let, $.use),
+    _statement: ($) => choice($._expression, $.let, $.let_assert, $.use),
     _expression: ($) => choice($._expression_unit, $.binary_expression),
     binary_expression: ($) =>
       choice(
@@ -304,7 +304,6 @@ module.exports = grammar({
         $.anonymous_function,
         $.expression_group,
         $.case,
-        $.let_assert,
         $.assert,
         $.negation,
         $.record_update,
