@@ -51,10 +51,6 @@
         {
           "type": "SYMBOL",
           "name": "type_alias"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "attribute"
         }
       ]
     },
@@ -1675,6 +1671,13 @@
       "content": {
         "type": "SEQ",
         "members": [
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "attribute"
+            }
+          },
           {
             "type": "CHOICE",
             "members": [
@@ -3530,6 +3533,13 @@
     "block": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "attribute"
+          }
+        },
         {
           "type": "STRING",
           "value": "{"
@@ -5537,6 +5547,13 @@
     "type_definition": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "attribute"
+          }
+        },
         {
           "type": "CHOICE",
           "members": [

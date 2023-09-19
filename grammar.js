@@ -36,7 +36,6 @@ module.exports = grammar({
         $.function,
         $.type_definition,
         $.type_alias,
-        $.attribute
       ),
 
     /* Comments */
@@ -247,6 +246,7 @@ module.exports = grammar({
     function: ($) =>
       prec.right(
         seq(
+          repeat($.attribute),
           optional($.visibility_modifier),
           "fn",
           field("name", $.identifier),
@@ -431,7 +431,7 @@ module.exports = grammar({
         choice($._discard_param, $._name_param),
         optional($._type_annotation)
       ),
-    block: ($) => seq("{", $._statement_seq, "}"),
+    block: ($) => seq(repeat($.attribute), "{", $._statement_seq, "}"),
     case: ($) =>
       seq(
         "case",
@@ -667,6 +667,7 @@ module.exports = grammar({
     /* Custom type definitions */
     type_definition: ($) =>
       seq(
+        repeat($.attribute),
         optional($.visibility_modifier),
         optional($.opacity_modifier),
         "type",

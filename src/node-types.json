@@ -1141,6 +1141,10 @@
           "named": true
         },
         {
+          "type": "attribute",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -2134,9 +2138,13 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
         {
           "type": "visibility_modifier",
           "named": true
@@ -3818,10 +3826,6 @@
           "named": true
         },
         {
-          "type": "attribute",
-          "named": true
-        },
-        {
           "type": "binary_expression",
           "named": true
         },
@@ -3991,10 +3995,6 @@
       "multiple": true,
       "required": false,
       "types": [
-        {
-          "type": "attribute",
-          "named": true
-        },
         {
           "type": "constant",
           "named": true
@@ -4677,6 +4677,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
         {
           "type": "data_constructors",
           "named": true

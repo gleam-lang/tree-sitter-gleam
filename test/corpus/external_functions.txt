@@ -147,18 +147,18 @@ fn integer_to_list(int int: Int, base base: Int) -> String
 ---
 
 (source_file
-  (attribute
-    (identifier)
-    (arguments
-      (attribute_value
-        (identifier))
-      (attribute_value
-        (string
-          (quoted_content)))
-      (attribute_value
-        (string
-          (quoted_content)))))
   (function
+    (attribute
+      (identifier)
+      (arguments
+        (attribute_value
+          (identifier))
+        (attribute_value
+          (string
+            (quoted_content)))
+        (attribute_value
+          (string
+            (quoted_content)))))
     (identifier)
     (function_parameters
       (function_parameter

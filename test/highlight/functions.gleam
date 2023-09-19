@@ -46,10 +46,10 @@ fn record_with_fun_field(record) {
   //        ^ constructor
   foo.baz(41)
   // <- variable
-  //  ^ property
+  //  ^ function
   record.foobar("hello")
   // ^ variable.parameter
-  //     ^ property
+  //     ^ function
   string.replace("hello", "l", "o")
   // ^ module
   //     ^ function
