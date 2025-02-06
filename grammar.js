@@ -418,7 +418,7 @@ module.exports = grammar({
         choice($._discard_param, $._name_param),
         optional($._type_annotation)
       ),
-    block: ($) => seq("{", $._statement_seq, "}"),
+    block: ($) => seq("{", optional($._statement_seq), "}"),
     case: ($) =>
       seq(
         "case",
