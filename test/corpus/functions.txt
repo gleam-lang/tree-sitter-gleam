@@ -314,9 +314,7 @@ fn field_access(x) {
   (function
     name: (identifier)
     parameters: (function_parameters)
-    body: (block
-      (todo
-        (MISSING "todo"))))
+    body: (block))
   (function
     name: (identifier)
     parameters: (function_parameters)
