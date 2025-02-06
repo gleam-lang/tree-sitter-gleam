@@ -255,13 +255,7 @@ module.exports = grammar({
           field("name", $.identifier),
           field("parameters", $.function_parameters),
           optional(seq("->", field("return_type", $._type))),
-          optional(
-            seq(
-              "{",
-              optional(field("body", alias($._statement_seq, $.function_body))),
-              "}"
-            )
-          )
+          optional(field("body", $.block))
         )
       ),
     function_parameters: ($) =>
@@ -406,9 +400,7 @@ module.exports = grammar({
           alias($.anonymous_function_parameters, $.function_parameters)
         ),
         optional(seq("->", field("return_type", $._type))),
-        "{",
-        field("body", alias($._statement_seq, $.function_body)),
-        "}"
+        field("body", $.block)
       ),
     anonymous_function_parameters: ($) =>
       seq(
