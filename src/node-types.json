@@ -1727,6 +1727,11 @@
     }
   },
   {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "constant",
     "named": true,
     "fields": {
@@ -3354,6 +3359,21 @@
     "fields": {}
   },
   {
+    "type": "module_comment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "doc_comment_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "panic",
     "named": true,
     "fields": {
@@ -4053,6 +4073,21 @@
         },
         {
           "type": "use",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "statement_comment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "doc_comment_content",
           "named": true
         }
       ]
@@ -5036,6 +5071,22 @@
     "named": false
   },
   {
+    "type": "//",
+    "named": false
+  },
+  {
+    "type": "///",
+    "named": false
+  },
+  {
+    "type": "////",
+    "named": false
+  },
+  {
+    "type": "/////",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -5140,12 +5191,12 @@
     "named": false
   },
   {
-    "type": "comment",
-    "named": true
-  },
-  {
     "type": "const",
     "named": false
+  },
+  {
+    "type": "doc_comment_content",
+    "named": true
   },
   {
     "type": "echo",
@@ -5161,11 +5212,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "fn",
@@ -5196,10 +5247,6 @@
     "named": false
   },
   {
-    "type": "module_comment",
-    "named": true
-  },
-  {
     "type": "native",
     "named": false
   },
@@ -5222,10 +5269,6 @@
   {
     "type": "size",
     "named": false
-  },
-  {
-    "type": "statement_comment",
-    "named": true
   },
   {
     "type": "todo",

@@ -59,7 +59,8 @@
       ]
     },
     "module_comment": {
-      "type": "TOKEN",
+      "type": "PREC",
+      "value": 3,
       "content": {
         "type": "SEQ",
         "members": [
@@ -68,14 +69,15 @@
             "value": "////"
           },
           {
-            "type": "PATTERN",
-            "value": ".*"
+            "type": "SYMBOL",
+            "name": "doc_comment_content"
           }
         ]
       }
     },
     "statement_comment": {
-      "type": "TOKEN",
+      "type": "PREC",
+      "value": 2,
       "content": {
         "type": "SEQ",
         "members": [
@@ -84,27 +86,50 @@
             "value": "///"
           },
           {
-            "type": "PATTERN",
-            "value": ".*"
+            "type": "SYMBOL",
+            "name": "doc_comment_content"
           }
         ]
       }
     },
     "comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "//"
-          },
-          {
-            "type": "PATTERN",
-            "value": ".*"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "//"
+              },
+              {
+                "type": "PATTERN",
+                "value": ".*"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "type": "PREC",
+          "value": 4,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "/////"
+              },
+              {
+                "type": "PATTERN",
+                "value": ".*"
+              }
+            ]
+          }
+        }
+      ]
     },
     "target_group": {
       "type": "SEQ",
@@ -7046,6 +7071,10 @@
     {
       "type": "SYMBOL",
       "name": "quoted_content"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "doc_comment_content"
     }
   ],
   "inline": [],
