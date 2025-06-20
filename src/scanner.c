@@ -1,7 +1,8 @@
 #include <tree_sitter/parser.h>
 
 enum TokenType {
-  QUOTED_CONTENT
+  QUOTED_CONTENT,
+  DOC_COMMENT_CONTENT,
 };
 
 void * tree_sitter_gleam_external_scanner_create() {return NULL;}
@@ -25,5 +26,22 @@ bool tree_sitter_gleam_external_scanner_scan(void * payload, TSLexer *lexer, con
     lexer->result_symbol = QUOTED_CONTENT;
     return has_content;
   }
+
+  if (valid_symbols[DOC_COMMENT_CONTENT]) {
+    lexer->result_symbol = DOC_COMMENT_CONTENT;
+    while (true) {
+        if (lexer->eof(lexer)) {
+            return true;
+        }
+        if (lexer->lookahead == '\n') {
+            // including the line ending in doc
+            // comments is necessary for markdown injections
+            lexer->advance(lexer, false);
+            return true;
+        }
+        lexer->advance(lexer, false);
+    }
+  }
+  
   return false;
 }

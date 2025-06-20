@@ -2,7 +2,7 @@ const NEWLINE = /\r?\n/;
 
 module.exports = grammar({
   name: "gleam",
-  externals: ($) => [$.quoted_content],
+  externals: ($) => [$.quoted_content, $.doc_comment_content],
   extras: ($) => [
     NEWLINE,
     /\s/,
@@ -41,9 +41,18 @@ module.exports = grammar({
       ),
 
     /* Comments */
-    module_comment: ($) => token(seq("////", /.*/)),
-    statement_comment: ($) => token(seq("///", /.*/)),
-    comment: ($) => token(seq("//", /.*/)),
+
+    module_comment: ($) => prec(3, seq("////", $.doc_comment_content)),
+
+    statement_comment: ($) => prec(2, seq("///", $.doc_comment_content)),
+
+    comment: ($) =>
+      choice(
+        prec(1, seq("//", /.*/)),
+
+        // `///// ...` looks like a `module_comment`, but it is not
+        prec(4, seq("/////", /.*/))
+      ),
 
     /* Target groups
      * DEPRECATED: This syntax was replaced with attributes in v0.30.
