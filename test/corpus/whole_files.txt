@@ -32,8 +32,10 @@ if javascript {
     module: (module))
   (import
     module: (module))
-  (statement_comment)
-  (statement_comment)
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
   (function
     (visibility_modifier)
     name: (identifier)
@@ -150,30 +152,49 @@ pub fn negate(bool: Bool) -> Bool {
 --------------------------------------------------------------------------------
 
 (source_file
-  (module_comment)
-  (module_comment)
-  (module_comment)
-  (module_comment)
-  (module_comment)
-  (module_comment)
-  (module_comment)
+  (module_comment
+    (doc_comment_content))
+  (module_comment
+    (doc_comment_content))
+  (module_comment
+    (doc_comment_content))
+  (module_comment
+    (doc_comment_content))
+  (module_comment
+    (doc_comment_content))
+  (module_comment
+    (doc_comment_content))
+  (module_comment
+    (doc_comment_content))
   (import
     module: (module)
     imports: (unqualified_imports
       (unqualified_import
         name: (constructor_name))))
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
-  (statement_comment)
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
+  (statement_comment
+    (doc_comment_content))
   (function
     (visibility_modifier)
     name: (identifier)
