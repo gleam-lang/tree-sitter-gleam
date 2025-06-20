@@ -42,30 +42,16 @@ module.exports = grammar({
 
     /* Comments */
 
-    module_comment: ($) =>
-      prec(3, seq(
-        "////",
-        $.doc_comment_content
-      )),
+    module_comment: ($) => prec(3, seq("////", $.doc_comment_content)),
 
-    statement_comment: ($) =>
-      prec(2, seq(
-        "///",
-        $.doc_comment_content
-      )),
+    statement_comment: ($) => prec(2, seq("///", $.doc_comment_content)),
 
     comment: ($) =>
       choice(
-        prec(1, seq(
-          "//",
-          /.*/
-        )),
+        prec(1, seq("//", /.*/)),
 
         // `///// ...` looks like a `module_comment`, but it is not
-        prec(4, seq(
-          "/////",
-          /.*/
-        )),
+        prec(4, seq("/////", /.*/))
       ),
 
     /* Target groups
