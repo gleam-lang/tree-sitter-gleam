@@ -21,7 +21,6 @@ module.exports = grammar({
     [$.source_file],
     [$._constant_value, $._case_clause_guard_unit],
     [$.integer],
-    [$.echo],
   ],
   rules: {
     /* General rules */
