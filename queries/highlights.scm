@@ -1,3 +1,31 @@
+; Punctuation
+[
+  "("
+  ")"
+  "["
+  "]"
+  "{"
+  "}"
+  "<<"
+  ">>"
+] @punctuation.bracket
+[
+  "."
+  ","
+  ;; Controversial -- maybe some are operators?
+  ":"
+  "#"
+  "="
+  "->"
+  ".."
+  "-"
+  "<-"
+] @punctuation.delimiter
+
+; Variables
+(identifier) @variable
+(discard) @comment.unused
+
 ; Comments
 (module_comment) @comment
 (statement_comment) @comment
@@ -7,6 +35,14 @@
 (constant
   name: (identifier) @constant)
 
+; "Properties"
+; Assumed to be intended to refer to a name for a field; something that comes
+; before ":" or after "."
+; e.g. record field names, tuple indices, names for named arguments, etc
+(label) @property
+(tuple_access
+  index: (integer) @property)
+
 ; Modules
 (module) @module
 (import alias: (identifier) @module)
@@ -14,10 +50,6 @@
   module: (identifier) @module)
 (remote_constructor_name
   module: (identifier) @module)
-((field_access
-  record: (identifier) @module
-  field: (label) @function)
- (#is-not? local))
 
 ; Functions
 (unqualified_import (identifier) @function)
@@ -37,13 +69,15 @@
    right: (identifier) @function)
  (#is-not? local))
 
-; "Properties"
-; Assumed to be intended to refer to a name for a field; something that comes
-; before ":" or after "."
-; e.g. record field names, tuple indices, names for named arguments, etc
-(label) @property
-(tuple_access
-  index: (integer) @property)
+; TODO: `#is-not? local` applies to entire patterns but ideally it would accept
+; a capture to check as a local. This needs to be suggested upstream. Until this
+; is a part of the CLI's highlighter we can't distinguish between function calls
+; on modules and accesses of record fields.
+(function_call function: (field_access field: (label) @function)) ; Ideally this pattern would be removed,
+((field_access
+  record: (identifier) @module)
+  ; field: (label) @function)                                     ; this line would be uncommented,
+ (#is-not? local))                                                ; and this line would be `(#is-not? local @module)`.
 
 ; Attributes
 (attribute
@@ -61,10 +95,10 @@
 
 ; Literals
 (string) @string
+(escape_sequence) @string.escape
 ((escape_sequence) @warning
  ; Deprecated in v0.33.0-rc2:
  (#eq? @warning "\\e"))
-(escape_sequence) @string.escape
 (bit_string_segment_option) @function.builtin
 (integer) @number
 (float) @number
@@ -73,11 +107,7 @@
 ; TODO: when tree-sitter supports `#any-of?` in the Rust bindings,
 ; refactor this to use `#any-of?` rather than `#match?`
 ((identifier) @error
- (#match? @error "^(auto|delegate|derive|else|implement|macro|test)$"))
-
-; Variables
-(identifier) @variable
-(discard) @comment.unused
+ (#any-of? @error "auto" "delegate" "derive" "else" "implement" "macro" "test"))
 
 ; Keywords
 [
@@ -105,27 +135,3 @@
   operator: _ @operator)
 (boolean_negation "!" @operator)
 (integer_negation "-" @operator)
-
-; Punctuation
-[
-  "("
-  ")"
-  "["
-  "]"
-  "{"
-  "}"
-  "<<"
-  ">>"
-] @punctuation.bracket
-[
-  "."
-  ","
-  ;; Controversial -- maybe some are operators?
-  ":"
-  "#"
-  "="
-  "->"
-  ".."
-  "-"
-  "<-"
-] @punctuation.delimiter
