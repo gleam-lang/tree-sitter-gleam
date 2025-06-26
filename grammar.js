@@ -387,8 +387,20 @@ module.exports = grammar({
           )
         )
       ),
-    pipeline_echo: (_$) => prec.left("echo"),
-    echo: ($) => seq("echo", $._expression),
+
+    pipeline_echo: ($) =>
+      prec.left(
+        seq("echo", optional(seq("as", field("message", $._expression_unit))))
+      ),
+    echo: ($) =>
+      prec.left(
+        seq(
+          "echo",
+          $._expression,
+          optional(seq("as", field("message", $._expression)))
+        )
+      ),
+
     tuple: ($) => seq("#", "(", optional(series_of($._expression, ",")), ")"),
     list: ($) =>
       seq(

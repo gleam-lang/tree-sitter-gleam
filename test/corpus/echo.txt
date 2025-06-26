@@ -18,6 +18,27 @@ pub fn main() {
         (integer)))))
 
 ================================================================================
+Echo with expression and message
+================================================================================
+
+pub fn main() {
+  echo 1 as "message"
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function
+    (visibility_modifier)
+    (identifier)
+    (function_parameters)
+    (block
+      (echo
+        (integer)
+        (string
+          (quoted_content))))))
+
+================================================================================
 Echo in pipeline
 ================================================================================
 
@@ -39,6 +60,31 @@ pub fn main() {
         (binary_expression
           (list)
           (pipeline_echo))
+        (panic)))))
+
+================================================================================
+Echo in pipeline and message
+================================================================================
+
+pub fn main() {
+  []
+  |> echo as message
+  |> panic
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function
+    (visibility_modifier)
+    (identifier)
+    (function_parameters)
+    (block
+      (binary_expression
+        (binary_expression
+          (list)
+          (pipeline_echo
+            (identifier)))
         (panic)))))
 
 ================================================================================
