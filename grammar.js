@@ -131,7 +131,8 @@ module.exports = grammar({
         alias($._constant_bit_string, $.bit_string),
         alias($.constant_record, $.record),
         $.identifier,
-        alias($.constant_field_access, $.field_access)
+        alias($.constant_field_access, $.field_access),
+        alias($.constant_binary_expression, $.binary_expression)
       ),
     constant_tuple: ($) =>
       seq("#", "(", optional(series_of($._constant_value, ",")), ")"),
@@ -159,6 +160,8 @@ module.exports = grammar({
         ),
         seq(field("label", $.label), ":")
       ),
+    constant_binary_expression: ($) =>
+      choice(binaryExpr(prec.left, 7, "<>", $._constant_value)),
     // This rule exists to parse remote function references which are generally
     // indistinguishable from field accesses and so share an AST node.
     constant_field_access: ($) =>

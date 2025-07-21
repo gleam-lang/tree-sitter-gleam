@@ -463,3 +463,24 @@ const b = Wibble(arg:, arg:)
           (label))
         (argument
           (label))))))
+
+================================================================================
+String concatenation constants
+================================================================================
+
+const name = "Jak"
+const string = "hello, " <> name <> "!"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (constant
+    (identifier)
+    (string (quoted_content)))
+  (constant
+    (identifier)
+    (binary_expression
+      (binary_expression
+        (string (quoted_content))
+        (identifier))
+      (string (quoted_content)))))

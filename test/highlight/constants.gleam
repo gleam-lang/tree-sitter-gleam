@@ -8,3 +8,8 @@ const s = "Hello, \e\t\n"
 //                 ^ warning
 //                   ^ string.escape
 //                    ^ string.escape
+
+const s = "Hello, " <> "World!"
+//              ^ string
+//                  ^ operator
+//                       ^ string
