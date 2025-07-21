@@ -411,6 +411,10 @@
         "required": false,
         "types": [
           {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
             "type": "bit_string",
             "named": true
           },
@@ -453,6 +457,10 @@
       "multiple": false,
       "required": false,
       "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
         {
           "type": "bit_string",
           "named": true
@@ -1771,6 +1779,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "binary_expression",
+            "named": true
+          },
           {
             "type": "bit_string",
             "named": true

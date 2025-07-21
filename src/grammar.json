@@ -697,6 +697,15 @@
           },
           "named": true,
           "value": "field_access"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "constant_binary_expression"
+          },
+          "named": true,
+          "value": "binary_expression"
         }
       ]
     },
@@ -1188,6 +1197,44 @@
               "value": ":"
             }
           ]
+        }
+      ]
+    },
+    "constant_binary_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC_LEFT",
+          "value": 7,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "left",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_constant_value"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "operator",
+                "content": {
+                  "type": "STRING",
+                  "value": "<>"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "right",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_constant_value"
+                }
+              }
+            ]
+          }
         }
       ]
     },
