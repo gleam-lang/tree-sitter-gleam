@@ -694,9 +694,50 @@ module.exports = grammar({
     ...bit_string_rules(
       "pattern",
       "_pattern",
-      "_pattern_bit_string_segment_argument"
+      "_pattern_bit_string_segment_size_expression"
     ),
-    _pattern_bit_string_segment_argument: ($) =>
+    _pattern_bit_string_segment_size_expression: ($) =>
+      choice(
+        $._pattern_bit_string_segment_size_unit,
+        alias(
+          $._pattern_bit_string_segment_size_binary_expression,
+          $.binary_expression
+        )
+      ),
+    _pattern_bit_string_segment_size_binary_expression: ($) =>
+      choice(
+        binaryExpr(
+          prec.left,
+          5,
+          "+",
+          $._pattern_bit_string_segment_size_expression
+        ),
+        binaryExpr(
+          prec.left,
+          5,
+          "-",
+          $._pattern_bit_string_segment_size_expression
+        ),
+        binaryExpr(
+          prec.left,
+          6,
+          "*",
+          $._pattern_bit_string_segment_size_expression
+        ),
+        binaryExpr(
+          prec.left,
+          6,
+          "/",
+          $._pattern_bit_string_segment_size_expression
+        ),
+        binaryExpr(
+          prec.left,
+          6,
+          "%",
+          $._pattern_bit_string_segment_size_expression
+        )
+      ),
+    _pattern_bit_string_segment_size_unit: ($) =>
       choice($.identifier, $.integer),
     list_pattern: ($) =>
       seq(
