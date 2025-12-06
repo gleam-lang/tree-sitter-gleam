@@ -671,10 +671,10 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "_constant_bit_string"
+            "name": "_constant_bit_array"
           },
           "named": true,
-          "value": "bit_string"
+          "value": "bit_array"
         },
         {
           "type": "ALIAS",
@@ -829,7 +829,7 @@
         }
       ]
     },
-    "_constant_bit_string": {
+    "_constant_bit_array": {
       "type": "SEQ",
       "members": [
         {
@@ -846,10 +846,10 @@
                   "type": "ALIAS",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "constant_bit_string_segment"
+                    "name": "constant_bit_array_segment"
                   },
                   "named": true,
-                  "value": "bit_string_segment"
+                  "value": "bit_array_segment"
                 },
                 {
                   "type": "REPEAT",
@@ -864,10 +864,10 @@
                         "type": "ALIAS",
                         "content": {
                           "type": "SYMBOL",
-                          "name": "constant_bit_string_segment"
+                          "name": "constant_bit_array_segment"
                         },
                         "named": true,
-                        "value": "bit_string_segment"
+                        "value": "bit_array_segment"
                       }
                     ]
                   }
@@ -897,7 +897,7 @@
         }
       ]
     },
-    "constant_bit_string_segment": {
+    "constant_bit_array_segment": {
       "type": "SEQ",
       "members": [
         {
@@ -925,10 +925,10 @@
                     "type": "ALIAS",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "constant_bit_string_segment_options"
+                      "name": "constant_bit_array_segment_options"
                     },
                     "named": true,
-                    "value": "bit_string_segment_options"
+                    "value": "bit_array_segment_options"
                   }
                 ]
               }
@@ -940,12 +940,12 @@
         }
       ]
     },
-    "constant_bit_string_segment_options": {
+    "constant_bit_array_segment_options": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_constant_bit_string_segment_option"
+          "name": "_constant_bit_array_segment_option"
         },
         {
           "type": "REPEAT",
@@ -958,7 +958,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_constant_bit_string_segment_option"
+                "name": "_constant_bit_array_segment_option"
               }
             ]
           }
@@ -977,12 +977,12 @@
         }
       ]
     },
-    "_constant_bit_string_segment_option": {
+    "_constant_bit_array_segment_option": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_constant_bit_string_named_segment_option"
+          "name": "_constant_bit_array_named_segment_option"
         },
         {
           "type": "SYMBOL",
@@ -990,25 +990,25 @@
         }
       ]
     },
-    "_constant_bit_string_named_segment_option": {
+    "_constant_bit_array_named_segment_option": {
       "type": "ALIAS",
       "content": {
         "type": "CHOICE",
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_bit_string_segment_option"
+            "name": "_bit_array_segment_option"
           },
           {
             "type": "SYMBOL",
-            "name": "_constant_bit_string_segment_option_size"
+            "name": "_constant_bit_array_segment_option_size"
           }
         ]
       },
       "named": true,
-      "value": "bit_string_segment_option"
+      "value": "bit_array_segment_option"
     },
-    "_constant_bit_string_segment_option_size": {
+    "_constant_bit_array_segment_option_size": {
       "type": "SEQ",
       "members": [
         {
@@ -2924,10 +2924,10 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "_expression_bit_string"
+            "name": "_expression_bit_array"
           },
           "named": true,
-          "value": "bit_string"
+          "value": "bit_array"
         },
         {
           "type": "SYMBOL",
@@ -3366,7 +3366,7 @@
         }
       ]
     },
-    "_expression_bit_string": {
+    "_expression_bit_array": {
       "type": "SEQ",
       "members": [
         {
@@ -3383,10 +3383,10 @@
                   "type": "ALIAS",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "expression_bit_string_segment"
+                    "name": "expression_bit_array_segment"
                   },
                   "named": true,
-                  "value": "bit_string_segment"
+                  "value": "bit_array_segment"
                 },
                 {
                   "type": "REPEAT",
@@ -3401,10 +3401,10 @@
                         "type": "ALIAS",
                         "content": {
                           "type": "SYMBOL",
-                          "name": "expression_bit_string_segment"
+                          "name": "expression_bit_array_segment"
                         },
                         "named": true,
-                        "value": "bit_string_segment"
+                        "value": "bit_array_segment"
                       }
                     ]
                   }
@@ -3434,7 +3434,7 @@
         }
       ]
     },
-    "expression_bit_string_segment": {
+    "expression_bit_array_segment": {
       "type": "SEQ",
       "members": [
         {
@@ -3462,10 +3462,10 @@
                     "type": "ALIAS",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "expression_bit_string_segment_options"
+                      "name": "expression_bit_array_segment_options"
                     },
                     "named": true,
-                    "value": "bit_string_segment_options"
+                    "value": "bit_array_segment_options"
                   }
                 ]
               }
@@ -3477,12 +3477,12 @@
         }
       ]
     },
-    "expression_bit_string_segment_options": {
+    "expression_bit_array_segment_options": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_expression_bit_string_segment_option"
+          "name": "_expression_bit_array_segment_option"
         },
         {
           "type": "REPEAT",
@@ -3495,7 +3495,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_expression_bit_string_segment_option"
+                "name": "_expression_bit_array_segment_option"
               }
             ]
           }
@@ -3514,12 +3514,12 @@
         }
       ]
     },
-    "_expression_bit_string_segment_option": {
+    "_expression_bit_array_segment_option": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_expression_bit_string_named_segment_option"
+          "name": "_expression_bit_array_named_segment_option"
         },
         {
           "type": "SYMBOL",
@@ -3527,25 +3527,25 @@
         }
       ]
     },
-    "_expression_bit_string_named_segment_option": {
+    "_expression_bit_array_named_segment_option": {
       "type": "ALIAS",
       "content": {
         "type": "CHOICE",
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_bit_string_segment_option"
+            "name": "_bit_array_segment_option"
           },
           {
             "type": "SYMBOL",
-            "name": "_expression_bit_string_segment_option_size"
+            "name": "_expression_bit_array_segment_option_size"
           }
         ]
       },
       "named": true,
-      "value": "bit_string_segment_option"
+      "value": "bit_array_segment_option"
     },
-    "_expression_bit_string_segment_option_size": {
+    "_expression_bit_array_segment_option_size": {
       "type": "SEQ",
       "members": [
         {
@@ -5496,10 +5496,10 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "_pattern_bit_string"
+            "name": "_pattern_bit_array"
           },
           "named": true,
-          "value": "bit_string_pattern"
+          "value": "bit_array_pattern"
         },
         {
           "type": "SYMBOL",
@@ -5872,7 +5872,7 @@
         }
       ]
     },
-    "_pattern_bit_string": {
+    "_pattern_bit_array": {
       "type": "SEQ",
       "members": [
         {
@@ -5889,10 +5889,10 @@
                   "type": "ALIAS",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "pattern_bit_string_segment"
+                    "name": "pattern_bit_array_segment"
                   },
                   "named": true,
-                  "value": "bit_string_segment"
+                  "value": "bit_array_segment"
                 },
                 {
                   "type": "REPEAT",
@@ -5907,10 +5907,10 @@
                         "type": "ALIAS",
                         "content": {
                           "type": "SYMBOL",
-                          "name": "pattern_bit_string_segment"
+                          "name": "pattern_bit_array_segment"
                         },
                         "named": true,
-                        "value": "bit_string_segment"
+                        "value": "bit_array_segment"
                       }
                     ]
                   }
@@ -5940,7 +5940,7 @@
         }
       ]
     },
-    "pattern_bit_string_segment": {
+    "pattern_bit_array_segment": {
       "type": "SEQ",
       "members": [
         {
@@ -5968,10 +5968,10 @@
                     "type": "ALIAS",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "pattern_bit_string_segment_options"
+                      "name": "pattern_bit_array_segment_options"
                     },
                     "named": true,
-                    "value": "bit_string_segment_options"
+                    "value": "bit_array_segment_options"
                   }
                 ]
               }
@@ -5983,12 +5983,12 @@
         }
       ]
     },
-    "pattern_bit_string_segment_options": {
+    "pattern_bit_array_segment_options": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_pattern_bit_string_segment_option"
+          "name": "_pattern_bit_array_segment_option"
         },
         {
           "type": "REPEAT",
@@ -6001,7 +6001,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_pattern_bit_string_segment_option"
+                "name": "_pattern_bit_array_segment_option"
               }
             ]
           }
@@ -6020,12 +6020,12 @@
         }
       ]
     },
-    "_pattern_bit_string_segment_option": {
+    "_pattern_bit_array_segment_option": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_pattern_bit_string_named_segment_option"
+          "name": "_pattern_bit_array_named_segment_option"
         },
         {
           "type": "SYMBOL",
@@ -6033,25 +6033,25 @@
         }
       ]
     },
-    "_pattern_bit_string_named_segment_option": {
+    "_pattern_bit_array_named_segment_option": {
       "type": "ALIAS",
       "content": {
         "type": "CHOICE",
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_bit_string_segment_option"
+            "name": "_bit_array_segment_option"
           },
           {
             "type": "SYMBOL",
-            "name": "_pattern_bit_string_segment_option_size"
+            "name": "_pattern_bit_array_segment_option_size"
           }
         ]
       },
       "named": true,
-      "value": "bit_string_segment_option"
+      "value": "bit_array_segment_option"
     },
-    "_pattern_bit_string_segment_option_size": {
+    "_pattern_bit_array_segment_option_size": {
       "type": "SEQ",
       "members": [
         {
@@ -6064,7 +6064,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_pattern_bit_string_segment_size_expression"
+          "name": "_pattern_bit_array_segment_size_expression"
         },
         {
           "type": "STRING",
@@ -6072,25 +6072,25 @@
         }
       ]
     },
-    "_pattern_bit_string_segment_size_expression": {
+    "_pattern_bit_array_segment_size_expression": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_pattern_bit_string_segment_size_unit"
+          "name": "_pattern_bit_array_segment_size_unit"
         },
         {
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "_pattern_bit_string_segment_size_binary_expression"
+            "name": "_pattern_bit_array_segment_size_binary_expression"
           },
           "named": true,
           "value": "binary_expression"
         }
       ]
     },
-    "_pattern_bit_string_segment_size_binary_expression": {
+    "_pattern_bit_array_segment_size_binary_expression": {
       "type": "CHOICE",
       "members": [
         {
@@ -6104,7 +6104,7 @@
                 "name": "left",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               },
               {
@@ -6120,7 +6120,7 @@
                 "name": "right",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               }
             ]
@@ -6137,7 +6137,7 @@
                 "name": "left",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               },
               {
@@ -6153,7 +6153,7 @@
                 "name": "right",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               }
             ]
@@ -6170,7 +6170,7 @@
                 "name": "left",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               },
               {
@@ -6186,7 +6186,7 @@
                 "name": "right",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               }
             ]
@@ -6203,7 +6203,7 @@
                 "name": "left",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               },
               {
@@ -6219,7 +6219,7 @@
                 "name": "right",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               }
             ]
@@ -6236,7 +6236,7 @@
                 "name": "left",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               },
               {
@@ -6252,7 +6252,7 @@
                 "name": "right",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_pattern_bit_string_segment_size_expression"
+                  "name": "_pattern_bit_array_segment_size_expression"
                 }
               }
             ]
@@ -6260,7 +6260,7 @@
         }
       ]
     },
-    "_pattern_bit_string_segment_size_unit": {
+    "_pattern_bit_array_segment_size_unit": {
       "type": "CHOICE",
       "members": [
         {
@@ -6728,7 +6728,7 @@
       "type": "PATTERN",
       "value": "0[bB][0-1_]+"
     },
-    "_bit_string_segment_option": {
+    "_bit_array_segment_option": {
       "type": "CHOICE",
       "members": [
         {
@@ -6749,7 +6749,7 @@
         },
         {
           "type": "STRING",
-          "value": "bit_string"
+          "value": "bit_array"
         },
         {
           "type": "STRING",

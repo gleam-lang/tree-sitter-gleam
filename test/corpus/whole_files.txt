@@ -2,12 +2,12 @@
 Excerpt from stdlib's base.gleam
 ================================================================================
 
-import gleam/bit_string
+import gleam/bit_array
 import gleam/string
 
-/// Encodes a BitString into a base 64 encoded string.
+/// Encodes a BitArray into a base 64 encoded string.
 ///
-pub fn encode64(input: BitString, padding: Bool) -> String {
+pub fn encode64(input: BitArray, padding: Bool) -> String {
   let encoded = do_encode64(input)
   case padding {
     True -> encoded
@@ -16,12 +16,12 @@ pub fn encode64(input: BitString, padding: Bool) -> String {
 }
 
 if erlang {
-  external fn do_encode64(BitString) -> String =
+  external fn do_encode64(BitArray) -> String =
     "base64" "encode"
 }
 
 if javascript {
-  external fn do_encode64(BitString) -> String =
+  external fn do_encode64(BitArray) -> String =
     "../gleam_stdlib.mjs" "encode64"
 }
 

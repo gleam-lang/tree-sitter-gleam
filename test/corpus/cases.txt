@@ -273,11 +273,11 @@ case wibble {
       (case_clause
         (case_clause_patterns
           (case_clause_pattern
-            (bit_string_pattern
-              (bit_string_segment
+            (bit_array_pattern
+              (bit_array_segment
                 (discard)
-                (bit_string_segment_options
-                  (bit_string_segment_option
+                (bit_array_segment_options
+                  (bit_array_segment_option
                     (binary_expression
                       (identifier)
                       (integer))))))))

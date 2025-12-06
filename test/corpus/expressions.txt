@@ -1,5 +1,5 @@
 ================================================================================
-Bit-string expression
+Bit-array expression
 ================================================================================
 
 <<code:int-size(8)-unit(2), reason:utf8>>
@@ -7,19 +7,19 @@ Bit-string expression
 --------------------------------------------------------------------------------
 
 (source_file
-  (bit_string
-    (bit_string_segment
+  (bit_array
+    (bit_array_segment
       (identifier)
-      (bit_string_segment_options
-        (bit_string_segment_option)
-        (bit_string_segment_option
+      (bit_array_segment_options
+        (bit_array_segment_option)
+        (bit_array_segment_option
           (integer))
-        (bit_string_segment_option
+        (bit_array_segment_option
           (integer))))
-    (bit_string_segment
+    (bit_array_segment
       (identifier)
-      (bit_string_segment_options
-        (bit_string_segment_option)))))
+      (bit_array_segment_options
+        (bit_array_segment_option)))))
 
 ================================================================================
 Boolean Negation

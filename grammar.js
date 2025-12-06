@@ -128,7 +128,7 @@ module.exports = grammar({
         $.integer,
         alias($.constant_tuple, $.tuple),
         alias($.constant_list, $.list),
-        alias($._constant_bit_string, $.bit_string),
+        alias($._constant_bit_array, $.bit_array),
         alias($.constant_record, $.record),
         $.identifier,
         alias($.constant_field_access, $.field_access),
@@ -138,7 +138,7 @@ module.exports = grammar({
       seq("#", "(", optional(series_of($._constant_value, ",")), ")"),
     constant_list: ($) =>
       seq("[", optional(series_of($._constant_value, ",")), "]"),
-    ...bit_string_rules("constant", "_constant_value", "integer"),
+    ...bit_array_rules("constant", "_constant_value", "integer"),
     constant_record: ($) =>
       seq(
         field("name", choice($.constructor_name, $.remote_constructor_name)),
@@ -349,7 +349,7 @@ module.exports = grammar({
         $.tuple,
         $.echo,
         $.list,
-        alias($._expression_bit_string, $.bit_string),
+        alias($._expression_bit_array, $.bit_array),
         $.anonymous_function,
         $.block,
         $.case,
@@ -418,7 +418,7 @@ module.exports = grammar({
         ),
         "]"
       ),
-    ...bit_string_rules("expression", "_expression_unit", "_expression"),
+    ...bit_array_rules("expression", "_expression_unit", "_expression"),
     anonymous_function: ($) =>
       seq(
         "fn",
@@ -651,7 +651,7 @@ module.exports = grammar({
         $.integer,
         $.float,
         $.tuple_pattern,
-        alias($._pattern_bit_string, $.bit_string_pattern),
+        alias($._pattern_bit_array, $.bit_array_pattern),
         $.list_pattern,
         alias($._pattern_binary_expression, $.binary_expression)
       ),
@@ -688,56 +688,56 @@ module.exports = grammar({
     pattern_spread: ($) => seq("..", optional(",")),
     tuple_pattern: ($) =>
       seq("#", "(", optional(series_of($._pattern, ",")), ")"),
-    // The Gleam parser has a special catch for nested bitstrings here, which
+    // The Gleam parser has a special catch for nested bitarrays here, which
     // is interesting as the same error does not exist on constants. Anyhow, I
     // wasn't really sure how to implement that easily here, and so didn't.
-    ...bit_string_rules(
+    ...bit_array_rules(
       "pattern",
       "_pattern",
-      "_pattern_bit_string_segment_size_expression"
+      "_pattern_bit_array_segment_size_expression"
     ),
-    _pattern_bit_string_segment_size_expression: ($) =>
+    _pattern_bit_array_segment_size_expression: ($) =>
       choice(
-        $._pattern_bit_string_segment_size_unit,
+        $._pattern_bit_array_segment_size_unit,
         alias(
-          $._pattern_bit_string_segment_size_binary_expression,
+          $._pattern_bit_array_segment_size_binary_expression,
           $.binary_expression
         )
       ),
-    _pattern_bit_string_segment_size_binary_expression: ($) =>
+    _pattern_bit_array_segment_size_binary_expression: ($) =>
       choice(
         binaryExpr(
           prec.left,
           5,
           "+",
-          $._pattern_bit_string_segment_size_expression
+          $._pattern_bit_array_segment_size_expression
         ),
         binaryExpr(
           prec.left,
           5,
           "-",
-          $._pattern_bit_string_segment_size_expression
+          $._pattern_bit_array_segment_size_expression
         ),
         binaryExpr(
           prec.left,
           6,
           "*",
-          $._pattern_bit_string_segment_size_expression
+          $._pattern_bit_array_segment_size_expression
         ),
         binaryExpr(
           prec.left,
           6,
           "/",
-          $._pattern_bit_string_segment_size_expression
+          $._pattern_bit_array_segment_size_expression
         ),
         binaryExpr(
           prec.left,
           6,
           "%",
-          $._pattern_bit_string_segment_size_expression
+          $._pattern_bit_array_segment_size_expression
         )
       ),
-    _pattern_bit_string_segment_size_unit: ($) =>
+    _pattern_bit_array_segment_size_unit: ($) =>
       choice($.identifier, $.integer),
     list_pattern: ($) =>
       seq(
@@ -805,13 +805,13 @@ module.exports = grammar({
     _decimal: ($) => /[0-9][0-9_]*/,
     _octal: ($) => /0[oO][0-7_]+/,
     _binary: ($) => /0[bB][0-1_]+/,
-    _bit_string_segment_option: ($) =>
+    _bit_array_segment_option: ($) =>
       choice(
         "binary",
         "bytes",
         "int",
         "float",
-        "bit_string",
+        "bit_array",
         "bits",
         "utf8",
         "utf16",
@@ -892,21 +892,21 @@ module.exports = grammar({
 });
 
 // This function and the following function are vaguely congruent with the
-// `parse_bit_string_segment` function of the Gleam parser.
-function bit_string_rules(name, value_parser, arg_parser) {
+// `parse_bit_array_segment` function of the Gleam parser.
+function bit_array_rules(name, value_parser, arg_parser) {
   return {
-    [`_${name}_bit_string`]: ($) =>
+    [`_${name}_bit_array`]: ($) =>
       seq(
         "<<",
         optional(
           series_of(
-            alias($[`${name}_bit_string_segment`], $.bit_string_segment),
+            alias($[`${name}_bit_array_segment`], $.bit_array_segment),
             ","
           )
         ),
         ">>"
       ),
-    [`${name}_bit_string_segment`]: ($) =>
+    [`${name}_bit_array_segment`]: ($) =>
       seq(
         field("value", $[value_parser]),
         optional(
@@ -915,32 +915,32 @@ function bit_string_rules(name, value_parser, arg_parser) {
             seq(
               ":",
               alias(
-                $[`${name}_bit_string_segment_options`],
-                $.bit_string_segment_options
+                $[`${name}_bit_array_segment_options`],
+                $.bit_array_segment_options
               )
             )
           )
         )
       ),
-    ...bit_string_segment_options(name, arg_parser),
+    ...bit_array_segment_options(name, arg_parser),
   };
 }
 
-function bit_string_segment_options(name, arg_parser) {
+function bit_array_segment_options(name, arg_parser) {
   return {
-    [`${name}_bit_string_segment_options`]: ($) =>
-      series_of($[`_${name}_bit_string_segment_option`], "-"),
-    [`_${name}_bit_string_segment_option`]: ($) =>
-      choice($[`_${name}_bit_string_named_segment_option`], $.integer),
-    [`_${name}_bit_string_named_segment_option`]: ($) =>
+    [`${name}_bit_array_segment_options`]: ($) =>
+      series_of($[`_${name}_bit_array_segment_option`], "-"),
+    [`_${name}_bit_array_segment_option`]: ($) =>
+      choice($[`_${name}_bit_array_named_segment_option`], $.integer),
+    [`_${name}_bit_array_named_segment_option`]: ($) =>
       alias(
         choice(
-          $._bit_string_segment_option,
-          $[`_${name}_bit_string_segment_option_size`]
+          $._bit_array_segment_option,
+          $[`_${name}_bit_array_segment_option_size`]
         ),
-        $.bit_string_segment_option
+        $.bit_array_segment_option
       ),
-    [`_${name}_bit_string_segment_option_size`]: ($) =>
+    [`_${name}_bit_array_segment_option_size`]: ($) =>
       seq("size", "(", $[arg_parser], ")"),
   };
 }
