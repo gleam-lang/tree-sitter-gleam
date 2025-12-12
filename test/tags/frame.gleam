@@ -11,10 +11,10 @@ pub type FrameData {
   Text(String)
   // <- definition.constructor
   //    ^ reference.type
-  Binary(BitString)
-  Continuation(BitString)
-  Ping(BitString)
-  Pong(BitString)
+  Binary(BitArray)
+  Continuation(BitArray)
+  Ping(BitArray)
+  Pong(BitArray)
   Close(code: Option(Int), reason: Option(String))
   // <- definition.constructor
   //            ^ reference.type
@@ -25,7 +25,7 @@ pub type FrameData {
 
 pub type Frame {
   //      ^ definition.type
-  Frame(reserved: BitString, mask: Option(BitString), data: FrameData, fin: Bool)
+  Frame(reserved: BitArray, mask: Option(BitArray), data: FrameData, fin: Bool)
 }
 
 fn encode_frame(frame: Frame) -> bit_builder.BitBuilder {
