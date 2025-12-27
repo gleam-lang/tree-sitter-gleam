@@ -17,6 +17,11 @@ module.exports = grammar({
       $._maybe_tuple_expression,
       $.remote_constructor_name,
     ],
+    [
+      $._maybe_case_clause_guard_accessor_expression,
+      $.constant_field_access,
+      $.remote_constructor_name,
+    ],
     [$.case_subjects],
     [$.source_file],
     [$._constant_value, $._case_clause_guard_unit],
@@ -505,12 +510,34 @@ module.exports = grammar({
     _case_clause_guard_unit: ($) =>
       choice(
         $.identifier,
+        // _constant_value can partially cover these, so bump their precedence
         prec(1, alias($._case_clause_tuple_access, $.tuple_access)),
+        prec(1, alias($._case_clause_field_access, $.field_access)),
         seq("{", $._case_clause_guard_expression, "}"),
         $._constant_value
       ),
+    _maybe_case_clause_guard_accessor_expression: ($) =>
+      choice(
+        $.identifier,
+        alias($._case_clause_tuple_access, $.tuple_access),
+        alias($._case_clause_field_access, $.field_access),
+      ),
     _case_clause_tuple_access: ($) =>
-      seq(field("tuple", $.identifier), ".", field("index", $.integer)),
+      prec.left(
+        seq(
+          field("tuple", $._maybe_case_clause_guard_accessor_expression),
+          ".",
+          field("index", $.integer)
+        )
+      ),
+    _case_clause_field_access: ($) =>
+      prec.left(
+        seq(
+          field("record", $._maybe_case_clause_guard_accessor_expression),
+          ".",
+          field("field", $.label)
+        )
+      ),
     let_assert: ($) =>
       seq(
         "let",
