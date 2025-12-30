@@ -4708,6 +4708,19 @@
           }
         },
         {
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_case_clause_field_access"
+            },
+            "named": true,
+            "value": "field_access"
+          }
+        },
+        {
           "type": "SEQ",
           "members": [
             {
@@ -4730,30 +4743,90 @@
         }
       ]
     },
-    "_case_clause_tuple_access": {
-      "type": "SEQ",
+    "_maybe_case_clause_guard_accessor_expression": {
+      "type": "CHOICE",
       "members": [
         {
-          "type": "FIELD",
-          "name": "tuple",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          }
+          "type": "SYMBOL",
+          "name": "identifier"
         },
         {
-          "type": "STRING",
-          "value": "."
-        },
-        {
-          "type": "FIELD",
-          "name": "index",
+          "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
-            "name": "integer"
-          }
+            "name": "_case_clause_tuple_access"
+          },
+          "named": true,
+          "value": "tuple_access"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_case_clause_field_access"
+          },
+          "named": true,
+          "value": "field_access"
         }
       ]
+    },
+    "_case_clause_tuple_access": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "tuple",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_maybe_case_clause_guard_accessor_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "FIELD",
+            "name": "index",
+            "content": {
+              "type": "SYMBOL",
+              "name": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "_case_clause_field_access": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "record",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_maybe_case_clause_guard_accessor_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "FIELD",
+            "name": "field",
+            "content": {
+              "type": "SYMBOL",
+              "name": "label"
+            }
+          }
+        ]
+      }
     },
     "let_assert": {
       "type": "SEQ",
@@ -7342,6 +7415,11 @@
     [
       "_maybe_record_expression",
       "_maybe_tuple_expression",
+      "remote_constructor_name"
+    ],
+    [
+      "_maybe_case_clause_guard_accessor_expression",
+      "constant_field_access",
       "remote_constructor_name"
     ],
     [
