@@ -520,7 +520,7 @@ module.exports = grammar({
       choice(
         $.identifier,
         alias($._case_clause_tuple_access, $.tuple_access),
-        alias($._case_clause_field_access, $.field_access),
+        alias($._case_clause_field_access, $.field_access)
       ),
     _case_clause_tuple_access: ($) =>
       prec.left(
