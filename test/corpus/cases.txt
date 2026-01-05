@@ -289,3 +289,74 @@ case wibble {
             (discard)))
         (record
           (constructor_name))))))
+
+================================================================================
+Nested tuple/field access in clause guard
+================================================================================
+
+case wibble {
+  _ if a.b.c -> True
+  _ if a.0.1 -> True
+  _ if a.b.0.a -> True
+  _ if a.0.a.0 -> True
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (case
+    subjects: (case_subjects
+      (identifier))
+    clauses: (case_clauses
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (discard)))
+        guard: (case_clause_guard
+          (field_access
+            record: (field_access
+              record: (identifier)
+              field: (label))
+            field: (label)))
+        value: (record
+          name: (constructor_name)))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (discard)))
+        guard: (case_clause_guard
+          (tuple_access
+            tuple: (tuple_access
+              tuple: (identifier)
+              index: (integer))
+            index: (integer)))
+        value: (record
+          name: (constructor_name)))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (discard)))
+        guard: (case_clause_guard
+          (field_access
+            record: (tuple_access
+              tuple: (field_access
+                record: (identifier)
+                field: (label))
+              index: (integer))
+            field: (label)))
+        value: (record
+          name: (constructor_name)))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (discard)))
+        guard: (case_clause_guard
+          (tuple_access
+            tuple: (field_access
+              record: (tuple_access
+                tuple: (identifier)
+                index: (integer))
+              field: (label))
+            index: (integer)))
+        value: (record
+          name: (constructor_name))))))
