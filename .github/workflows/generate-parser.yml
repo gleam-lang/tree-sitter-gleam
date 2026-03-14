@@ -1,11 +1,11 @@
 # generates the parser with 'tree-sitter generate' if the parser is out of date
 name: Generate Parser
-
 on:
   push:
     branches:
       - main
-
+permissions:
+  contents: write
 jobs:
   generate:
     name: Generate Parser
