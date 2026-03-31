@@ -102,7 +102,6 @@
 (bit_array_segment_option) @function.builtin
 (integer) @number
 (float) @number
-(negative_literal) @number
 
 ; Reserved identifiers
 ; TODO: when tree-sitter supports `#any-of?` in the Rust bindings,

@@ -392,21 +392,21 @@ case x, y {
       (case_clause
         patterns: (case_clause_patterns
           (case_clause_pattern
-            (negative_literal)))
+            (integer)))
         value: (record
           name: (constructor_name)))
       (case_clause
         patterns: (case_clause_patterns
           (case_clause_pattern
-            (negative_literal))
+            (integer))
           (case_clause_pattern
-            (negative_literal)))
+            (integer)))
         value: (record
           name: (constructor_name)))
       (case_clause
         patterns: (case_clause_patterns
           (case_clause_pattern
-            (negative_literal)))
+            (integer)))
         guard: (case_clause_guard
           (identifier))
         value: (record
@@ -425,7 +425,7 @@ case x, y {
       (case_clause
         patterns: (case_clause_patterns
           (case_clause_pattern
-            (negative_literal)
-            (negative_literal)))
+            (integer)
+            (integer)))
         value: (record
           name: (constructor_name))))))
