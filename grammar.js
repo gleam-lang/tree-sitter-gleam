@@ -827,10 +827,8 @@ module.exports = grammar({
         token.immediate(/\\u\{[0-9a-fA-F]{1,6}\}/)
       ),
     float: ($) => /-?[0-9_]+\.[0-9_]*(e-?[0-9_]+)?/,
-    integer: ($) =>
-      choice($._hex, $._decimal, $._octal, $._binary),
-    negative_literal: ($) =>
-      token(seq("-", /[0-9][0-9_]*/)),
+    integer: ($) => choice($._hex, $._decimal, $._octal, $._binary),
+    negative_literal: ($) => token(seq("-", /[0-9][0-9_]*/)),
     _hex: ($) => /0[xX][0-9a-fA-F_]+/,
     _decimal: ($) => /[0-9][0-9_]*/,
     _octal: ($) => /0[oO][0-7_]+/,
