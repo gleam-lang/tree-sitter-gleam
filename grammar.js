@@ -25,7 +25,6 @@ module.exports = grammar({
     [$.case_subjects],
     [$.source_file],
     [$._constant_value, $._case_clause_guard_unit],
-    [$.integer],
   ],
   rules: {
     /* General rules */
@@ -131,6 +130,7 @@ module.exports = grammar({
         $.string,
         $.float,
         $.integer,
+        $.negative_literal,
         alias($.constant_tuple, $.tuple),
         alias($.constant_list, $.list),
         alias($._constant_bit_array, $.bit_array),
@@ -677,6 +677,7 @@ module.exports = grammar({
         $.string,
         $.integer,
         $.float,
+        $.negative_literal,
         $.tuple_pattern,
         alias($._pattern_bit_array, $.bit_array_pattern),
         $.list_pattern,
@@ -827,7 +828,9 @@ module.exports = grammar({
       ),
     float: ($) => /-?[0-9_]+\.[0-9_]*(e-?[0-9_]+)?/,
     integer: ($) =>
-      seq(optional("-"), choice($._hex, $._decimal, $._octal, $._binary)),
+      choice($._hex, $._decimal, $._octal, $._binary),
+    negative_literal: ($) =>
+      token(seq("-", /[0-9][0-9_]*/)),
     _hex: ($) => /0[xX][0-9a-fA-F_]+/,
     _decimal: ($) => /[0-9][0-9_]*/,
     _octal: ($) => /0[oO][0-7_]+/,

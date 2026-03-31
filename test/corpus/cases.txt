@@ -360,3 +360,72 @@ case wibble {
             index: (integer)))
         value: (record
           name: (constructor_name))))))
+
+================================================================================
+Negative integer patterns in case clauses
+================================================================================
+
+case x {
+  0 -> some_value
+  -1 -> Wibble
+  -2 | -3 -> Wobble
+  -1_000 if condition -> Wubble
+}
+
+case x, y {
+  0, 0 -> some_value
+  -1, -2 -> Wibble
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (case
+    subjects: (case_subjects
+      (identifier))
+    clauses: (case_clauses
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (integer)))
+        value: (identifier))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (negative_literal)))
+        value: (record
+          name: (constructor_name)))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (negative_literal))
+          (case_clause_pattern
+            (negative_literal)))
+        value: (record
+          name: (constructor_name)))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (negative_literal)))
+        guard: (case_clause_guard
+          (identifier))
+        value: (record
+          name: (constructor_name)))))
+  (case
+    subjects: (case_subjects
+      (identifier)
+      (identifier))
+    clauses: (case_clauses
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (integer)
+            (integer)))
+        value: (identifier))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (negative_literal)
+            (negative_literal)))
+        value: (record
+          name: (constructor_name))))))
