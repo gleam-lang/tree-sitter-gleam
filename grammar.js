@@ -959,7 +959,11 @@ function bit_array_segment_options(name, arg_parser) {
     [`${name}_bit_array_segment_options`]: ($) =>
       series_of($[`_${name}_bit_array_segment_option`], "-"),
     [`_${name}_bit_array_segment_option`]: ($) =>
-      choice($[`_${name}_bit_array_named_segment_option`], $.integer),
+      choice(
+        $[`_${name}_bit_array_named_segment_option`],
+        $.integer,
+        alias($._negative_literal, $.integer)
+      ),
     [`_${name}_bit_array_named_segment_option`]: ($) =>
       alias(
         choice(
