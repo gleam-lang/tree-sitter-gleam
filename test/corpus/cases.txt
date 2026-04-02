@@ -291,6 +291,55 @@ case wibble {
           (constructor_name))))))
 
 ================================================================================
+Bit array edge cases
+================================================================================
+
+// From `bit_array_test.gleam` in the stdlib
+<<>>
+<<0>>
+<<-1:32>>
+<<0:-8>>
+<<7:3>>
+<<-1:190>>
+<<0:-1>>
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (bit_array)
+  (bit_array
+    (bit_array_segment
+      (integer)))
+  (bit_array
+    (bit_array_segment
+      (integer_negation
+        (integer))
+      (bit_array_segment_options
+        (integer))))
+  (bit_array
+    (bit_array_segment
+      (integer)
+      (bit_array_segment_options
+        (integer))))
+  (bit_array
+    (bit_array_segment
+      (integer)
+      (bit_array_segment_options
+        (integer))))
+  (bit_array
+    (bit_array_segment
+      (integer_negation
+        (integer))
+      (bit_array_segment_options
+        (integer))))
+  (bit_array
+    (bit_array_segment
+      (integer)
+      (bit_array_segment_options
+        (integer)))))
+
+================================================================================
 Nested tuple/field access in clause guard
 ================================================================================
 
@@ -358,5 +407,74 @@ case wibble {
                 index: (integer))
               field: (label))
             index: (integer)))
+        value: (record
+          name: (constructor_name))))))
+
+================================================================================
+Negative integer patterns in case clauses
+================================================================================
+
+case x {
+  0 -> some_value
+  -1 -> Wibble
+  -2 | -3 -> Wobble
+  -1_000 if condition -> Wubble
+}
+
+case x, y {
+  0, 0 -> some_value
+  -1, -2 -> Wibble
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (case
+    subjects: (case_subjects
+      (identifier))
+    clauses: (case_clauses
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (integer)))
+        value: (identifier))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (integer)))
+        value: (record
+          name: (constructor_name)))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (integer))
+          (case_clause_pattern
+            (integer)))
+        value: (record
+          name: (constructor_name)))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (integer)))
+        guard: (case_clause_guard
+          (identifier))
+        value: (record
+          name: (constructor_name)))))
+  (case
+    subjects: (case_subjects
+      (identifier)
+      (identifier))
+    clauses: (case_clauses
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (integer)
+            (integer)))
+        value: (identifier))
+      (case_clause
+        patterns: (case_clause_patterns
+          (case_clause_pattern
+            (integer)
+            (integer)))
         value: (record
           name: (constructor_name))))))
