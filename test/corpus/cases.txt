@@ -291,6 +291,55 @@ case wibble {
           (constructor_name))))))
 
 ================================================================================
+Bit array edge cases
+================================================================================
+
+// From `bit_array_test.gleam` in the stdlib
+<<>>
+<<0>>
+<<-1:32>>
+<<0:-8>>
+<<7:3>>
+<<-1:190>>
+<<0:-1>>
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (bit_array)
+  (bit_array
+    (bit_array_segment
+      (integer)))
+  (bit_array
+    (bit_array_segment
+      (integer_negation
+        (integer))
+      (bit_array_segment_options
+        (integer))))
+  (bit_array
+    (bit_array_segment
+      (integer)
+      (bit_array_segment_options
+        (integer))))
+  (bit_array
+    (bit_array_segment
+      (integer)
+      (bit_array_segment_options
+        (integer))))
+  (bit_array
+    (bit_array_segment
+      (integer_negation
+        (integer))
+      (bit_array_segment_options
+        (integer))))
+  (bit_array
+    (bit_array_segment
+      (integer)
+      (bit_array_segment_options
+        (integer)))))
+
+================================================================================
 Nested tuple/field access in clause guard
 ================================================================================
 
