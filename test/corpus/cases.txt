@@ -236,23 +236,23 @@ case var {
       (identifier))
     (case_clauses
       (case_clause
-      (case_clause_patterns
-        (case_clause_pattern
-        (discard)))
-      (case_clause_guard
-        (binary_expression
-        (binary_expression
-            (integer)
-            (integer))
-        (integer)))
-      (record
-        (constructor_name)))
+        (case_clause_patterns
+          (case_clause_pattern
+            (discard)))
+        (case_clause_guard
+          (binary_expression
+            (binary_expression
+              (integer)
+              (integer))
+            (integer)))
+        (record
+          (constructor_name)))
       (case_clause
-      (case_clause_patterns
-        (case_clause_pattern
-        (discard)))
-      (record
-        (constructor_name))))))
+        (case_clause_patterns
+          (case_clause_pattern
+            (discard)))
+        (record
+          (constructor_name))))))
 
 ================================================================================
 Bit array pattern with arithmetic in segment size

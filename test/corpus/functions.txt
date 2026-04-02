@@ -508,29 +508,29 @@ fn field_access(x) {
           (discard))
         value: (tuple
           (integer)
-              (integer)))
-          (let_assert
-            pattern: (record_pattern
-              name: (constructor_name)
-              arguments: (record_pattern_arguments
-                (record_pattern_argument
-                  pattern: (discard))))
-            value: (record
-              name: (constructor_name)
-              arguments: (arguments
-                (argument
-                  value: (integer))))
-            message: (string
-              (quoted_content)))
-          (let_assert
-            pattern: (integer)
-            value: (integer)
-            message: (block
-              (binary_expression
-                left: (string
-                  (quoted_content))
-                right: (string
-                  (quoted_content)))))))
+          (integer)))
+      (let_assert
+        pattern: (record_pattern
+          name: (constructor_name)
+          arguments: (record_pattern_arguments
+            (record_pattern_argument
+              pattern: (discard))))
+        value: (record
+          name: (constructor_name)
+          arguments: (arguments
+            (argument
+              value: (integer))))
+        message: (string
+          (quoted_content)))
+      (let_assert
+        pattern: (integer)
+        value: (integer)
+        message: (block
+          (binary_expression
+            left: (string
+              (quoted_content))
+            right: (string
+              (quoted_content)))))))
   (function
     name: (identifier)
     parameters: (function_parameters)
