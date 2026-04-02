@@ -653,6 +653,15 @@
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",
+            "name": "_negative_literal"
+          },
+          "named": true,
+          "value": "integer"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
             "name": "constant_tuple"
           },
           "named": true,
@@ -987,6 +996,15 @@
         {
           "type": "SYMBOL",
           "name": "integer"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_negative_literal"
+          },
+          "named": true,
+          "value": "integer"
         }
       ]
     },
@@ -3524,6 +3542,15 @@
         {
           "type": "SYMBOL",
           "name": "integer"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_negative_literal"
+          },
+          "named": true,
+          "value": "integer"
         }
       ]
     },
@@ -5562,6 +5589,15 @@
           "name": "float"
         },
         {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_negative_literal"
+          },
+          "named": true,
+          "value": "integer"
+        },
+        {
           "type": "SYMBOL",
           "name": "tuple_pattern"
         },
@@ -6103,6 +6139,15 @@
         {
           "type": "SYMBOL",
           "name": "integer"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_negative_literal"
+          },
+          "named": true,
+          "value": "integer"
         }
       ]
     },
@@ -6748,42 +6793,41 @@
       "value": "-?[0-9_]+\\.[0-9_]*(e-?[0-9_]+)?"
     },
     "integer": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "-"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_hex"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_hex"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_decimal"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_octal"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_binary"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "_decimal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_octal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_binary"
         }
       ]
+    },
+    "_negative_literal": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "-"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9][0-9_]*"
+          }
+        ]
+      }
     },
     "_hex": {
       "type": "PATTERN",
@@ -7431,9 +7475,6 @@
     [
       "_constant_value",
       "_case_clause_guard_unit"
-    ],
-    [
-      "integer"
     ]
   ],
   "precedences": [],
