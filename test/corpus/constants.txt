@@ -532,3 +532,19 @@ const b = todo as "single" <> other
             (string
               (quoted_content)))
           (identifier))))
+
+================================================================================
+Constant list spread
+================================================================================
+
+const s = [1, 2, ..rest]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (constant
+    (identifier)
+    (list
+       (integer)
+       (integer)
+       (identifier))))
