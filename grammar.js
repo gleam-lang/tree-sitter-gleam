@@ -137,7 +137,25 @@ module.exports = grammar({
         alias($.constant_record, $.record),
         $.identifier,
         alias($.constant_field_access, $.field_access),
-        alias($.constant_binary_expression, $.binary_expression)
+        alias($.constant_binary_expression, $.binary_expression),
+        alias($.constant_todo, $.todo)
+      ),
+    constant_todo: ($) =>
+      prec.left(
+        // Todo needs to have lower precedence than `<>` otherwise
+        // ```gleam
+        // todo as "wibble" <> "wobble"
+        // ```
+        // Would be parsed as:
+        // ```gleam
+        // todo as { "wibble" <> "wobble" }
+        // ```
+        // Instead of:
+        // ```gleam
+        // { todo as "wibble" } <> "wobble"
+        // ```
+        10,
+        seq("todo", optional(seq("as", field("message", $._constant_value))))
       ),
     constant_tuple: ($) =>
       seq("#", "(", optional(series_of($._constant_value, ",")), ")"),
