@@ -13,3 +13,8 @@ const s = "Hello, " <> "World!"
 //              ^ string
 //                  ^ operator
 //                       ^ string
+
+const s = todo as "message"
+//        ^ keyword
+//             ^ keyword
+//                 ^ string
