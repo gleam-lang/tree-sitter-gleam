@@ -18,3 +18,11 @@ const s = todo as "message"
 //        ^ keyword
 //             ^ keyword
 //                 ^ string
+
+const s = [1, 2, ..[3, 4]]
+//         ^ number
+//                  ^ number
+
+const s = [1, 2, ..rest]
+//         ^ number
+//                  ^ variable

@@ -160,7 +160,18 @@ module.exports = grammar({
     constant_tuple: ($) =>
       seq("#", "(", optional(series_of($._constant_value, ",")), ")"),
     constant_list: ($) =>
-      seq("[", optional(series_of($._constant_value, ",")), "]"),
+      seq(
+        "[",
+        optional(
+          seq(
+            $._constant_value,
+            optional(repeat(seq(",", $._constant_value))),
+            optional(","),
+            optional(seq("..", field("spread", $._constant_value)))
+          )
+        ),
+        "]"
+      ),
     ...bit_array_rules("constant", "_constant_value", "integer"),
     constant_record: ($) =>
       seq(
