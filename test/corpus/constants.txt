@@ -528,10 +528,10 @@ const b = todo as "single" <> other
   (constant
     (identifier)
     (binary_expression
-          (todo
-            (string
-              (quoted_content)))
-          (identifier))))
+      (todo
+        (string
+          (quoted_content)))
+      (identifier))))
 
 ================================================================================
 Constant list spread
@@ -545,6 +545,6 @@ const s = [1, 2, ..rest]
   (constant
     (identifier)
     (list
-       (integer)
-       (integer)
-       (identifier))))
+      (integer)
+      (integer)
+      (identifier))))
