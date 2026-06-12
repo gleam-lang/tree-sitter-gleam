@@ -18,3 +18,19 @@ string
     (field_access
       (identifier)
       (label))))
+
+================================================================================
+Pipe and concat (#149)
+================================================================================
+
+value |> to_string <> "foo"
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (binary_expression
+    (binary_expression
+      (identifier)
+      (identifier))
+    (string
+      (quoted_content))))
