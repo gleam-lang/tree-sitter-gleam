@@ -443,6 +443,10 @@
             "named": true
           },
           {
+            "type": "record_update",
+            "named": true
+          },
+          {
             "type": "string",
             "named": true
           },
@@ -491,6 +495,10 @@
         },
         {
           "type": "record",
+          "named": true
+        },
+        {
+          "type": "record_update",
           "named": true
         },
         {
@@ -1537,6 +1545,10 @@
           "named": true
         },
         {
+          "type": "record_update",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -1822,6 +1834,10 @@
           },
           {
             "type": "record",
+            "named": true
+          },
+          {
+            "type": "record_update",
             "named": true
           },
           {
