@@ -24,6 +24,7 @@ const a = Node
 const a = Node()
 const a = Cat("Ginny", 1950)
 const a = Person(name: "Billy", age: 52)
+const a = Person(..a, age: 53)
 const a = uri.Uri(host: "github.com")
 const a: option.Option(String) = option.Some("Hello, World!")
 const var_alias = b
@@ -179,6 +180,15 @@ const fun_tuple: #(fn(Float) -> String, fn(Int) -> String) = #(float.to_string, 
           value: (string
             (quoted_content)))
         (argument
+          label: (label)
+          value: (integer)))))
+  (constant
+    name: (identifier)
+    value: (record_update
+      constructor: (constructor_name)
+      spread: (identifier)
+      arguments: (record_update_arguments
+        (record_update_argument
           label: (label)
           value: (integer)))))
   (constant

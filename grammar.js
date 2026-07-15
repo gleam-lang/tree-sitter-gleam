@@ -135,6 +135,7 @@ module.exports = grammar({
         alias($.constant_list, $.list),
         alias($._constant_bit_array, $.bit_array),
         alias($.constant_record, $.record),
+        alias($.constant_record_update, $.record_update),
         $.identifier,
         alias($.constant_field_access, $.field_access),
         alias($.constant_binary_expression, $.binary_expression),
@@ -192,6 +193,32 @@ module.exports = grammar({
           optional(seq(field("label", $.label), ":")),
           field("value", $._constant_value)
         ),
+        seq(field("label", $.label), ":")
+      ),
+    constant_record_update: ($) =>
+      seq(
+        field(
+          "constructor",
+          choice($.constructor_name, $.remote_constructor_name)
+        ),
+        "(",
+        "..",
+        field("spread", $._constant_value),
+        ",",
+        field(
+          "arguments",
+          alias($.constant_record_update_arguments, $.record_update_arguments)
+        ),
+        ")"
+      ),
+    constant_record_update_arguments: ($) =>
+      series_of(
+        alias($.constant_record_update_argument, $.record_update_argument),
+        ","
+      ),
+    constant_record_update_argument: ($) =>
+      choice(
+        seq(field("label", $.label), ":", field("value", $._constant_value)),
         seq(field("label", $.label), ":")
       ),
     constant_binary_expression: ($) =>
