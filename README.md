@@ -30,8 +30,8 @@ trees and syntax highlighting for a given Gleam file.
    syntax highlighting applied.
 
 [tree-sitter-gleam-rust-example]: https://github.com/J3RN/tree-sitter-gleam-rust-example
-[tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md
-[Install tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md#installation
+[tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md
+[Install tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md#installation
 
 Various Gotchas
 ---------------
